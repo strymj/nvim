@@ -1,0 +1,104 @@
+# ##### dein plugin settings #####
+
+# # deoplete
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+#
+# # denite
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+
+# easy commentout key -> gc, gcc
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+# easy insert () {} [] <> ...
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# expantion copy and paste
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
+hook_add = '''
+	nmap p <Plug>(yankround-p)
+	xmap p <Plug>(yankround-p)
+	nmap P <Plug>(yankround-P)
+	nmap gp <Plug>(yankround-gp)
+	xmap gp <Plug>(yankround-gp)
+	nmap gP <Plug>(yankround-gP)
+	nmap <C-p> <Plug>(yankround-prev)
+	nmap <C-n> <Plug>(yankround-next)
+	'''
+
+# file explorer
+[[plugins]]
+repo = 'kien/ctrlp.vim'
+hook_add = '''
+
+	" # prevent from overwriting lightline
+	let g:ctrlp_buffer_func = {
+		\ 'enter': 'CtrlPEnter',
+		\ 'exit': 'CtrlPLeave',
+	\ }
+
+	" # when CtrlP buffer opened, lightline and statusline off
+	function! CtrlPEnter()
+		let w:lightline = 0
+		set laststatus=0
+	endfunction
+	
+	" # when CtrlP buffer closed, lightline and statusline on
+	function! CtrlPLeave()
+		let w:lightline = 1
+		set laststatus=2
+	endfunction
+
+	" # CtrlP keymapping -> @f
+	let g:ctrlp_map = '<nop>'
+	nnoremap <silent> @f :CtrlP ~/<CR>
+	nnoremap <silent> @F :CtrlPClearCache<CR>:CtrlP ~/<CR>
+	" # japanese file search off
+	let g:ctrlp_use_migemo = 0
+	" # ambiguous search off
+	let g:ctrlp_regexp = 1
+	" # use cache
+	let g:ctrlp_use_caching = 1
+	" # do not delete cache
+	let g:ctrlp_clear_cache_on_exit = 0
+	" # clear cache mapping
+	let g:ctrlp_prompt_mappings = { 'PrtClearCache()': ['<C-r>'] }
+	" # do not show dotfiles
+	let g:ctrlp_show_hidden = 1
+	" # lazy search on (wait xxx[ms] <1:default ->250[ms]>)
+	let g:ctrlp_lazy_update = 230
+	" # set ctrlp window size
+	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
+	'''
+
+# cool statusline
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+	let g:lightline = {
+		\ 'colorscheme': 'wombat'
+		\ }
+	" # show statusbar
+	set laststatus=2
+	" # hide --INSERT--
+	set noshowmode
+	'''
+
+# colorscheme
+[[plugins]]
+repo = 'bcicen/vim-vice'
+hook_add = '''
+	augroup AutoColor
+		autocmd!
+		autocmd AutoColor VimEnter * nested colorscheme vice
+	augroup END 
+	'''
+# repo = 'baverman/vim-babymate256'
+# repo = 'romainl/Apprentice'
+# repo = 'mbbill/vim-seattle'
+# repo = 'cocopon/iceberg.vim'
+
