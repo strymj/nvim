@@ -31,15 +31,12 @@ augroup AutoTrans
 	autocmd Colorscheme * highlight Folded ctermbg=none
 augroup END
 
-" regard .launch as xml file
-augroup AutoFile
+" New Buffer settings
+augroup AutoBufRead
 	autocmd!
+	" regard .launch as xml file
 	autocmd BufRead,BufNewFile *.launch setfiletype xml
-augroup END
-
-
-augroup AutoNoComment
-	autocmd!
+	" auto commentout off
 	autocmd BufRead,BufNewFile * set formatoptions-=ro
 augroup END
 
