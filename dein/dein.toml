@@ -80,8 +80,23 @@ hook_add = '''
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 	let g:lightline = {
-		\ 'colorscheme': 'wombat'
+		\ 'colorscheme': 'wombat',
+		\ 'active': {
+			\ 'left': [ ['mode', 'paste'], ['readonly', 'filestr', 'modified'] ]
+    		\ },
+		\ 'component_function':{
+			\ 'filestr': 'FileStr'
+			\ }
 		\ }
+
+	function! FileStr()
+  		if winwidth(0) > 90
+    		return expand("%:s")
+  		else
+    		return expand("%:t")
+  		endif
+	endfunction
+
 	" # show statusbar
 	set laststatus=2
 	" # hide --INSERT--
