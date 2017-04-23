@@ -55,8 +55,8 @@ hook_add = '''
 
 	" # CtrlP keymapping -> @f
 	let g:ctrlp_map = '<nop>'
-	nnoremap <silent> @f :CtrlP ~/<CR>
-	nnoremap <silent> @F :CtrlPClearCache<CR>:CtrlP ~/<CR>
+	nnoremap <silent> @e :CtrlP ~/<CR>
+	nnoremap <silent> @E :CtrlPClearCache<CR>:CtrlP ~/<CR>
 	" # japanese file search off
 	let g:ctrlp_use_migemo = 0
 	" # ambiguous search off
@@ -94,7 +94,7 @@ repo = 'bcicen/vim-vice'
 hook_add = '''
 	augroup AutoColor
 		autocmd!
-		autocmd AutoColor VimEnter * nested colorscheme vice
+		autocmd VimEnter * nested colorscheme vice
 	augroup END 
 	'''
 # repo = 'baverman/vim-babymate256'

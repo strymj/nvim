@@ -33,10 +33,6 @@ nnoremap k gk
 nnoremap <S-l> <S-Right>
 nnoremap <S-h> <S-Left>
 
-" increment decrement
-nnoremap <C-k> <C-a>
-nnoremap <C-j> <C-x>
-
 " indent correction
 nnoremap == gg=G''
 
@@ -44,6 +40,7 @@ nnoremap == gg=G''
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 
 " write next row
+nnoremap <C-j> o<ESC>
 inoremap <C-j> <ESC>o
 
 " c++ function shortcut

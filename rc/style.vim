@@ -25,16 +25,22 @@ set t_Co=256
 " transparent background settings
 augroup AutoTrans
   	autocmd!
-	autocmd AutoTrans Colorscheme * highlight Normal ctermbg=none
-	autocmd AutoTrans Colorscheme * highlight NonText ctermbg=none
-	autocmd AutoTrans Colorscheme * highlight LineNr ctermbg=none
-	autocmd AutoTrans Colorscheme * highlight Folded ctermbg=none
+	autocmd Colorscheme * highlight Normal ctermbg=none
+	autocmd Colorscheme * highlight NonText ctermbg=none
+	autocmd Colorscheme * highlight LineNr ctermbg=none
+	autocmd Colorscheme * highlight Folded ctermbg=none
 augroup END
 
 " regard .launch as xml file
 augroup AutoFile
 	autocmd!
 	autocmd BufRead,BufNewFile *.launch setfiletype xml
+augroup END
+
+
+augroup AutoNoComment
+	autocmd!
+	autocmd BufRead,BufNewFile * set formatoptions-=ro
 augroup END
 
 " set row number
