@@ -48,7 +48,7 @@ inoremap {{ {<CR>}<Up><ESC>o
 
 " run catkinmake rosbuild python
 nnoremap @p :w<CR>:RunPython<CR>
-nnoremap @c :w<CR>:tabe<CR>:terminal<CR>roscd<CR>catkin_make<CR>
+nnoremap @c :w<CR>:-tabe<CR>:terminal<CR>roscd<CR>catkin_make<CR>
 nnoremap @b :w<CR>:RosBuild<CR>
 nnoremap @m :w<CR>:CMakeBuild<CR>
 
