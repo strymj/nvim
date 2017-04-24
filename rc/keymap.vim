@@ -1,7 +1,7 @@
 " ##### neovim keymap settings #####
 
 " reload init.vim
-nnoremap <Space>rc :source ~/.config/nvim/init.vim<CR>
+nnoremap @rc :source ~/.config/nvim/init.vim<CR>
 
 " write and quit
 nnoremap <silent> <C-w> :w<CR>
@@ -30,8 +30,10 @@ nnoremap k gk
 " inoremap <C-l> <ESC>la
 
 " mone to next word
-nnoremap <S-l> <S-Right>
-nnoremap <S-h> <S-Left>
+nnoremap <S-l> w
+nnoremap <S-h> b
+vnoremap <S-l> w
+vnoremap <S-h> b
 
 " indent correction
 nnoremap == gg=G''
