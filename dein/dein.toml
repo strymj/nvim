@@ -53,10 +53,22 @@ hook_add = '''
 		set laststatus=2
 	endfunction
 
+	" when you start nvim with no file, use CtrlP
+	function InsertIfEmpty()
+		if @% == ""
+			CtrlP ~/
+		endif
+	endfunction
+
+	augroup AutoCtrlP
+		autocmd!
+		autocmd VimEnter * call InsertIfEmpty()
+	augroup END
+
 	" # CtrlP keymapping -> @f
 	let g:ctrlp_map = '<nop>'
-	nnoremap <silent> @e :CtrlP ~/<CR>
-	nnoremap <silent> @E :CtrlPClearCache<CR>:CtrlP ~/<CR>
+	nnoremap <silent> @e :tabe<CR>:CtrlP ~/<CR>
+	nnoremap <silent> @E :tabe<CR>:CtrlPClearCache<CR>:CtrlP ~/<CR>
 	" # japanese file search off
 	let g:ctrlp_use_migemo = 0
 	" # ambiguous search off
