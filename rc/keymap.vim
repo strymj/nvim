@@ -4,30 +4,26 @@
 nnoremap @rc :source ~/.config/nvim/init.vim<CR>
 
 " write and quit
-nnoremap <silent> <C-w> :w<CR>
-nnoremap <silent> <C-q> :q<CR>
+nnoremap <C-w> :w<CR>
+nnoremap <C-q> :q<CR>
 
 " normalmode Enter
 nnoremap <CR> i<CR><Right><ESC>
 
-" terminal
+" terminal mapping
 nnoremap @t :tabe<CR>:terminal<CR>
-tnoremap <C-[> <C-\><C-n>
+tnoremap <ESC> <C-\><C-n>
 tnoremap <C-q> <C-\><C-n>:q<CR>
+tnoremap <C-l> <C-\><C-n>gt
+tnoremap <C-h> <C-\><C-n>gT
 
 " tab move
 nnoremap <C-l> gt
 nnoremap <C-h> gT
-tnoremap <C-l> gt
-tnoremap <C-h> gT
 
 " cursor settings
 nnoremap j gj
 nnoremap k gk
-" inoremap <C-h> <ESC>ha
-" inoremap <C-j> <ESC>gja
-" inoremap <C-k> <ESC>gka
-" inoremap <C-l> <ESC>la
 
 " mone to next word
 nnoremap <S-l> w

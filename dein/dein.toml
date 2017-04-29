@@ -28,7 +28,7 @@ hook_add = '''
 	nmap gP <Plug>(yankround-gP)
 	nmap <C-p> <Plug>(yankround-prev)
 	nmap <C-n> <Plug>(yankround-next)
-	'''
+'''
 
 # file explorer
 [[plugins]]
@@ -85,7 +85,7 @@ hook_add = '''
 	let g:ctrlp_lazy_update = 230
 	" # set ctrlp window size
 	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
-	'''
+'''
 
 # cool statusline
 [[plugins]]
@@ -113,7 +113,7 @@ hook_add = '''
 	set laststatus=2
 	" # hide --INSERT--
 	set noshowmode
-	'''
+'''
 
 # colorscheme
 [[plugins]]
@@ -123,7 +123,7 @@ hook_add = '''
 		autocmd!
 		autocmd VimEnter * nested colorscheme vice
 	augroup END 
-	'''
+'''
 # repo = 'baverman/vim-babymate256'
 # repo = 'romainl/Apprentice'
 # repo = 'mbbill/vim-seattle'
