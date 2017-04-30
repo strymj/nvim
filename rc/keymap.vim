@@ -10,12 +10,6 @@ nnoremap <C-q> :q<CR>
 " normalmode Enter
 nnoremap <CR> i<CR><Right><ESC>
 
-" terminal mapping
-nnoremap @t :tabe<CR>:terminal<CR>
-tnoremap <ESC> <C-\><C-n>
-tnoremap <C-q> <C-\><C-n>:q<CR>
-tnoremap <C-l> <C-\><C-n>gt
-tnoremap <C-h> <C-\><C-n>gT
 
 " tab move
 nnoremap <C-l> gt
@@ -49,4 +43,13 @@ nnoremap @p :w<CR>:RunPython<CR>
 nnoremap @c :w<CR>:-tabe<CR>:terminal<CR>roscd<CR>catkin_make<CR>
 nnoremap @b :w<CR>:RosBuild<CR>
 nnoremap @m :w<CR>:CMakeBuild<CR>
+
+" neovim terminal mapping
+if has('nvim')
+	nnoremap @t :tabe<CR>:terminal<CR>
+	tnoremap <ESC> <C-\><C-n>
+	tnoremap <C-q> <C-\><C-n>:q<CR>
+	tnoremap <C-l> <C-\><C-n>gt
+	tnoremap <C-h> <C-\><C-n>gT
+endif
 
