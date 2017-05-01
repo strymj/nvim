@@ -10,7 +10,6 @@ nnoremap <silent> <C-q> :q<CR>
 " normalmode Enter
 nnoremap <CR> i<CR><Right><ESC>
 
-
 " tab move
 nnoremap <C-l> gt
 nnoremap <C-h> gT
