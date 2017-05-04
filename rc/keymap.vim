@@ -5,6 +5,7 @@ nnoremap @rc :source ~/.config/nvim/init.vim<CR>
 
 " write and quit
 nnoremap <silent> <C-w> :w<CR>
+inoremap <silent> <C-w> <C-o>:w<CR>
 nnoremap <silent> <C-q> :q<CR>
 
 " normalmode Enter
