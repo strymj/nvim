@@ -67,9 +67,8 @@ hook_add = '''
 
 	" # CtrlP keymapping -> @f
 	let g:ctrlp_map = '<nop>'
-	nnoremap <silent> @e :tabe<CR>:CtrlP ~/<CR>
-	nnoremap <silent> @E :CtrlP ~/<CR>
-	nnoremap <silent> @re :tabe<CR>:CtrlPClearCache<CR>:CtrlP ~/<CR>
+	nnoremap <silent> @e :CtrlP ~/<CR>
+	nnoremap <silent> @E :tabe<CR>:CtrlP ~/<CR>
 	" # japanese file search off
 	let g:ctrlp_use_migemo = 0
 	" # ambiguous search off
