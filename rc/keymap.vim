@@ -18,6 +18,8 @@ nnoremap <C-h> gT
 " cursor settings
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " mone to next word
 nnoremap <S-l> w
