@@ -30,6 +30,9 @@ vnoremap <S-h> b
 " indent correction
 nnoremap == gg=G''
 
+" select all
+nnoremap <C-a> ggVG
+
 " searched highlight off
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 

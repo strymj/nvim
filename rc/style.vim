@@ -24,7 +24,7 @@ set t_Co=256
 
 " transparent background settings
 augroup AutoTrans
-  	autocmd!
+	autocmd!
 	autocmd Colorscheme * highlight Normal ctermbg=none
 	autocmd Colorscheme * highlight NonText ctermbg=none
 	autocmd Colorscheme * highlight LineNr ctermbg=none
@@ -70,14 +70,15 @@ set showmatch
 set matchtime=1
 
 " link clipboard
-set clipboard+=unnamedplus
-	
+set clipboard=unnamedplus
+
 " regard 'hoge-piyo' as one word
 set isk+=-
 
 " fold settings
-set foldmethod=syntax
-set foldnestmax=3
+set foldmethod=marker
+" set foldmethod=syntax
+" set foldnestmax=3
 
 " scrolloff
 set scrolloff=3
