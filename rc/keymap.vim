@@ -31,7 +31,7 @@ vnoremap <S-h> b
 nnoremap == gg=G''
 
 " select all
-nnoremap <C-a> ggVG
+vnoremap @ <ESC>ggVG
 
 " searched highlight off
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
