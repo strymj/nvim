@@ -73,7 +73,7 @@ set matchtime=1
 set clipboard=unnamedplus
 
 " regard 'hoge-piyo' as one word
-set isk+=-
+" set isk+=-
 
 " fold settings
 set foldmethod=marker
