@@ -84,6 +84,6 @@ set foldmethod=marker
 set scrolloff=3
 
 " tab setting
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
