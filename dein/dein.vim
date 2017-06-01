@@ -1,5 +1,8 @@
 " ##### dein install settings #####
 
+" for vim setting
+set runtimepath+=~/.cache/dein
+
 " install dir 
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'

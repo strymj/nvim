@@ -16,6 +16,34 @@ repo = 'tomtom/tcomment_vim'
 [[plugins]]
 repo = 'tpope/vim-surround'
 
+# cool statusline
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+	let g:lightline = {
+		\ 'colorscheme': 'wombat',
+		\ 'active': {
+			\ 'left': [ ['mode', 'paste'], ['readonly', 'filestr', 'modified'] ]
+				\ },
+		\ 'component_function':{
+			\ 'filestr': 'FileStr'
+				\ }
+		\ }
+
+	function! FileStr()
+		if winwidth(0) > 90
+			return expand("%:s")
+		else
+			return expand("%:t")
+		endif
+	endfunction
+
+	" # show statusbar
+	set laststatus=2
+	" # hide --INSERT--
+	set noshowmode
+'''
+
 # expantion copy and paste
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
@@ -46,14 +74,14 @@ hook_add = '''
 		let w:lightline = 0
 		set laststatus=0
 	endfunction
-	
-	" # when CtrlP buffer closed, lightline and statusline on
+
+		" # when CtrlP buffer closed, lightline and statusline on
 	function! CtrlPLeave()
 		let w:lightline = 1
 		set laststatus=2
 	endfunction
 
-	" when you start nvim with no file, use CtrlP
+	" # when you start nvim with no file, use CtrlP
 	function InsertIfEmpty()
 		if @% == ""
 			CtrlP ~/
@@ -86,34 +114,12 @@ hook_add = '''
 	let g:ctrlp_lazy_update = 230
 	" # set ctrlp window size
 	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
-'''
-
-# cool statusline
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = '''
-	let g:lightline = {
-		\ 'colorscheme': 'wombat',
-		\ 'active': {
-			\ 'left': [ ['mode', 'paste'], ['readonly', 'filestr', 'modified'] ]
-    		\ },
-		\ 'component_function':{
-			\ 'filestr': 'FileStr'
-			\ }
-		\ }
-
-	function! FileStr()
-  		if winwidth(0) > 90
-    		return expand("%:s")
-  		else
-    		return expand("%:t")
-  		endif
-	endfunction
-
-	" # show statusbar
-	set laststatus=2
-	" # hide --INSERT--
-	set noshowmode
+	" # ignore specific files
+	let g:ctrlp_custom_ignore = {
+		\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+		\ 'file': '\v\.(exe|so|dll)$',
+		\ 'link': 'some_bad_symbolic_links',
+	\ }
 '''
 
 # colorscheme
@@ -125,6 +131,8 @@ hook_add = '''
 		autocmd VimEnter * nested colorscheme vice
 	augroup END 
 '''
+
+# repo = 'altercation/vim-colors-solarized'
 # repo = 'baverman/vim-babymate256'
 # repo = 'romainl/Apprentice'
 # repo = 'mbbill/vim-seattle'
