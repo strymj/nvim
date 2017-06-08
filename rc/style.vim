@@ -44,6 +44,18 @@ augroup END
 " set row number
 set number
 
+" neovim terminal style
+if has('nvim')
+	augroup linenumber
+		autocmd!
+		" normal -> terminal mode when using terminal
+		autocmd BufWinEnter,WinEnter term://* startinsert
+		" set nonumber in terminal
+		autocmd BufRead * set number
+		autocmd TermOpen * set nonumber
+	augroup END
+endif
+
 " exclude files when findinf
 set wildignore+=*.git,*.zip,*.png,*.jpg,*/Trash 
 
