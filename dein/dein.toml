@@ -8,6 +8,16 @@
 # [[plugins]]
 # repo = 'Shougo/denite.nvim'
 
+# neovim terminal plugin
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_add = '''
+	nnoremap <silent> @t :Tnew<CR><c-w>j
+	nnoremap <silent> @c :T roscd && catkin_make<CR><c-w>j
+	nnoremap <silent> @p :T python '%'<CR><c-w>j
+	nnoremap <silent> @q :Tclose!<CR>
+'''
+
 # easy commentout key -> gc, gcc
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
@@ -82,7 +92,7 @@ hook_add = '''
 	endfunction
 
 	" # when you start nvim with no file, use CtrlP
-	function InsertIfEmpty()
+	function CtrlPIfEmpty()
 		if @% == ""
 			CtrlP ~/
 		endif
@@ -90,7 +100,7 @@ hook_add = '''
 
 	augroup AutoCtrlP
 		autocmd!
-		autocmd VimEnter * call InsertIfEmpty()
+		autocmd VimEnter * call CtrlPIfEmpty()
 	augroup END
 
 	" # CtrlP keymapping -> @f
@@ -111,7 +121,7 @@ hook_add = '''
 	" # do not show dotfiles
 	let g:ctrlp_show_hidden = 1
 	" # lazy search on (wait xxx[ms] <1:default ->250[ms]>)
-	let g:ctrlp_lazy_update = 230
+	let g:ctrlp_lazy_update = 250
 	" # set ctrlp window size
 	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
 	" # ignore specific files
@@ -124,14 +134,15 @@ hook_add = '''
 
 # colorscheme
 [[plugins]]
-repo = 'bcicen/vim-vice'
+repo = 'cocopon/iceberg.vim'
 hook_add = '''
 	augroup AutoColor
 		autocmd!
-		autocmd VimEnter * nested colorscheme vice
+		autocmd VimEnter * nested colorscheme iceberg
 	augroup END 
 '''
 
+# repo = 'bcicen/vim-vice'
 # repo = 'altercation/vim-colors-solarized'
 # repo = 'baverman/vim-babymate256'
 # repo = 'romainl/Apprentice'

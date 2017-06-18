@@ -4,16 +4,16 @@
 nnoremap @rc :source ~/.config/nvim/init.vim<CR>
 
 " write and quit
-nnoremap <silent> <C-w> :w<CR>
-inoremap <silent> <C-w> <ESC>:w<CR>
-nnoremap <silent> <C-q> :q<CR>
+" nnoremap <silent> <C-w> :w<CR>
+" inoremap <silent> <C-w> <ESC>:w<CR>
+" nnoremap <silent> <C-q> :q<CR>
 
 " normalmode Enter
 nnoremap <CR> i<CR><Right><ESC>
 
 " tab move
-nnoremap <C-l> gt
-nnoremap <C-h> gT
+nnoremap <C-l> :w<CR>gt
+nnoremap <C-h> :w<CR>gT
 
 " cursor settings
 nnoremap j gj
@@ -31,7 +31,7 @@ vnoremap <S-h> b
 nnoremap == gg=G''
 
 " select all
-vnoremap @ <ESC>ggVG
+nnoremap @a ggVG
 
 " searched highlight off
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
@@ -43,18 +43,12 @@ inoremap <C-j> <ESC>o
 " c++ function shortcut
 inoremap {{ {<CR>}<Up><ESC>o
 
-" run catkinmake rosbuild python
-nnoremap @p :w<CR>:RunPython<CR>
-nnoremap @b :w<CR>:RosBuild<CR>
-nnoremap @m :w<CR>:CMakeBuild<CR>
-
 " neovim terminal mapping
 if has('nvim')
-	nnoremap @t :tabe<CR>:terminal<CR>
+	" nnoremap @t :tabe<CR>:terminal<CR>
 	tnoremap <ESC> <C-\><C-n>
 	tnoremap <C-q> <C-\><C-n>:q<CR>
 	tnoremap <C-l> <C-\><C-n>gt
 	tnoremap <C-h> <C-\><C-n>gT
-	nnoremap @c :w<CR>:-tabe<CR>:terminal<CR>roscd<CR>catkin_make<CR>
 endif
 

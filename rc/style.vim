@@ -38,7 +38,7 @@ augroup AutoBufRead
 	" regard .launch as xml file
 	autocmd BufRead,BufNewFile *.launch setfiletype xml
 	" auto commentout off
-	autocmd BufRead,BufNewFile * set formatoptions-=ro
+	" autocmd BufRead,BufNewFile * set formatoptions-=ro
 augroup END
 
 " set row number
