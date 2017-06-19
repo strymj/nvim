@@ -28,10 +28,10 @@ vnoremap <S-l> w
 vnoremap <S-h> b
 
 " indent correction
-nnoremap == gg=G''
+nnoremap == mZgg=G'Z
 
 " select all
-nnoremap @a ggVG
+nnoremap @a mZggVG
 
 " searched highlight off
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
