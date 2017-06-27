@@ -11,9 +11,13 @@ nnoremap @rc :source ~/.config/nvim/init.vim<CR>
 " normalmode Enter
 nnoremap <CR> i<CR><Right><ESC>
 
-" tab move
+" tab change
 nnoremap <C-l> :w<CR>gt
 nnoremap <C-h> :w<CR>gT
+
+" tab move
+nnoremap @l :+tabmove<CR>
+nnoremap @h :-tabmove<CR>
 
 " cursor settings
 nnoremap j gj
@@ -28,7 +32,7 @@ vnoremap <S-l> w
 vnoremap <S-h> b
 
 " indent correction
-nnoremap == mZgg=G'Z
+nnoremap == mYgg=G'Y
 
 " select all
 nnoremap @a mZggVG

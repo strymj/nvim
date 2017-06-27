@@ -29,7 +29,7 @@ augroup AutoTrans
 	autocmd Colorscheme * highlight NonText ctermbg=none
 	autocmd Colorscheme * highlight LineNr ctermbg=none
 	autocmd Colorscheme * highlight Folded ctermbg=none
-	" autocmd Colorscheme * highlight MatchParen ctermbg=none
+	autocmd Colorscheme * highlight MatchParen ctermbg=none
 augroup END
 
 " New Buffer settings
@@ -51,8 +51,8 @@ if has('nvim')
 		" normal -> terminal mode when using terminal
 		autocmd BufWinEnter,WinEnter term://* startinsert
 		" set nonumber in terminal
-		autocmd BufRead * set number
-		autocmd TermOpen * set nonumber
+		" autocmd BufRead * set number
+		" autocmd TermOpen * set nonumber
 	augroup END
 endif
 
@@ -65,9 +65,9 @@ set title
 " highlight and incremental search result
 set incsearch
 set hlsearch
-" search Uppercase and Lowercase
+" if search string contains only Lowercase, search Uppercase and Lowercase
 set ignorecase
-" if contain Uppercase -> no ignorecase
+" if search string contains Uppercase, don't apply ignorecase
 set smartcase
 
 " auto indent settings
@@ -83,9 +83,6 @@ set matchtime=1
 
 " link clipboard
 set clipboard=unnamedplus
-
-" regard 'hoge-piyo' as one word
-" set isk+=-
 
 " fold settings
 set foldmethod=marker

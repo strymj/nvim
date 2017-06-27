@@ -1,13 +1,5 @@
 # ##### dein plugin settings #####
 
-# # deoplete
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-#
-# # denite
-# [[plugins]]
-# repo = 'Shougo/denite.nvim'
-
 # neovim terminal plugin
 [[plugins]]
 repo = 'kassio/neoterm'
@@ -107,7 +99,7 @@ hook_add = '''
 	let g:ctrlp_map = '<nop>'
 	nnoremap @e :CtrlP ~/<CR>
 	nnoremap @E :CtrlPClearCache<CR>:CtrlP ~/<CR>
-	" # nnoremap <silent> @E :tabe<CR>:CtrlP ~/<CR>
+
 	" # japanese file search off
 	let g:ctrlp_use_migemo = 0
 	" # ambiguous search off
