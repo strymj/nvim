@@ -55,5 +55,6 @@ if has('nvim')
 	tnoremap <C-l> <C-\><C-n>gt
 	tnoremap <C-h> <C-\><C-n>gT
 	tnoremap <C-w> <C-\><C-n><C-w>
+	tnoremap <C-h> <BS>
 endif
 
