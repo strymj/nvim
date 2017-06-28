@@ -48,11 +48,8 @@ set number
 if has('nvim')
 	augroup linenumber
 		autocmd!
-		" normal -> terminal mode when using terminal
+		" normal -> terminal mode when moving terminal window
 		autocmd BufWinEnter,WinEnter term://* startinsert
-		" set nonumber in terminal
-		" autocmd BufRead * set number
-		" autocmd TermOpen * set nonumber
 	augroup END
 endif
 

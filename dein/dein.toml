@@ -7,7 +7,6 @@ hook_add = '''
 	nnoremap <silent> @t :Tnew<CR><c-w>j
 	nnoremap <silent> @c :T roscd && catkin_make<CR><c-w>j
 	nnoremap <silent> @p :T python %<CR><c-w>j
-	" # nnoremap <silent> @q :Tclose!<CR>
 '''
 
 # easy commentout key -> gc, gcc
