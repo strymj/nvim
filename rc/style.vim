@@ -30,6 +30,7 @@ augroup AutoTrans
 	autocmd Colorscheme * highlight LineNr ctermbg=none
 	autocmd Colorscheme * highlight Folded ctermbg=none
 	autocmd Colorscheme * highlight MatchParen ctermbg=none
+	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
 augroup END
 
 " New Buffer settings
