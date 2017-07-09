@@ -24,18 +24,18 @@ hook_add = '''
 	let g:lightline = {
 		\ 'colorscheme': 'wombat',
 		\ 'active': {
-			\ 'left': [ ['mode', 'paste'], ['readonly', 'filestr', 'modified'] ]
+			\ 'left': [ ['mode', 'paste'], ['readonly', 'filepath', 'modified'] ]
 				\ },
 		\ 'component_function':{
-			\ 'filestr': 'FileStr'
+			\ 'filepath': 'FilePath'
 				\ }
 		\ }
 
-	function! FileStr()
+	function! FilePath()
 		if winwidth(0) > 90
-			return expand("%:s")
+			return expand("%:p")
 		else
-			return expand("%:t")
+			return expand("%")
 		endif
 	endfunction
 
@@ -113,6 +113,14 @@ hook_add = '''
 	let g:ctrlp_lazy_update = 200
 	" # set ctrlp window size
 	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
+	" # ignore specific files
+	let g:ctrlp_custom_ignore = {
+		\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+		\ 'file': '\v\.(exe|so|dll|o)$',
+		\ 'link': 'some_bad_symbolic_links',
+	\ }
+
+
 
 	" " # do not show dotfiles
 	" let g:ctrlp_show_hidden = 1
