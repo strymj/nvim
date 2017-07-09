@@ -98,6 +98,7 @@ hook_add = '''
 	let g:ctrlp_map = '<nop>'
 	nnoremap @e :CtrlP ~/<CR>
 	nnoremap @E :CtrlPClearCache<CR>:CtrlP ~/<CR>
+	nnoremap @n :CtrlP ~/.config/nvim<CR>
 
 	" # japanese file search off
 	let g:ctrlp_use_migemo = 0
