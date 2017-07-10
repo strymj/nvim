@@ -64,6 +64,22 @@ hook_add = '''
 repo = 'kien/ctrlp.vim'
 hook_add = '''
 
+fu! s:PrtClearC()
+	if s:itemtype == 0
+		cal ctrlp#clr()
+	elsei s:itemtype > 2
+		cal ctrlp#clr(s:statypes[s:itemtype][1])
+	en
+	if s:itemtype == 2
+		let g:ctrlp_lines = ctrlp#mrufiles#refresh()
+	el
+		cal ctrlp#setlines()
+	en
+	let s:force = 1
+	cal s:BuildPrompt(1)
+	unl s:force
+endf
+
 	" # prevent from overwriting lightline
 	let g:ctrlp_buffer_func = {
 		\ 'enter': 'CtrlPEnter',
