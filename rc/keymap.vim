@@ -1,7 +1,10 @@
 " ##### neovim keymap settings #####
 
+" set mapleader
+let mapleader = "\<Space>"
+
 " reload init.vim
-nnoremap @rc :source ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>rc :source ~/.config/nvim/init.vim<CR>
 
 " write and quit
 " nnoremap <silent> <C-w> :w<CR>
@@ -16,8 +19,8 @@ nnoremap <C-l> :w<CR>gt
 nnoremap <C-h> :w<CR>gT
 
 " tab move
-nnoremap @l :+tabmove<CR>
-nnoremap @h :-tabmove<CR>
+nnoremap <Leader>l :+tabmove<CR>
+nnoremap <Leader>h :-tabmove<CR>
 
 " cursor settings
 nnoremap j gj
@@ -35,7 +38,7 @@ vnoremap <S-h> b
 nnoremap == mYgg=G'Y
 
 " select all
-nnoremap @a mZggVG
+nnoremap <Leader>a mZggVG
 
 " searched highlight off
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>

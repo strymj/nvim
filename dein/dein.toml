@@ -4,9 +4,9 @@
 [[plugins]]
 repo = 'kassio/neoterm'
 hook_add = '''
-	nnoremap <silent> @t :Tnew<CR><c-w>j
-	nnoremap <silent> @c :T roscd && catkin_make<CR><c-w>j
-	nnoremap <silent> @p :T python %<CR><c-w>j
+	nnoremap <silent> <Leader>t :Tnew<CR><c-w>j
+	nnoremap <silent> <Leader>c :T roscd && catkin_make<CR><c-w>j
+	nnoremap <silent> <Leader>p :T python %<CR><c-w>j
 '''
 
 # easy commentout key -> gc, gcc
@@ -94,11 +94,11 @@ hook_add = '''
 		autocmd VimEnter * call CtrlPIfEmpty()
 	augroup END
 
-	" # CtrlP keymapping -> @f
+	" # CtrlP keymapping
 	let g:ctrlp_map = '<nop>'
-	nnoremap @e :CtrlP ~/<CR>
-	nnoremap @E :CtrlPClearCache<CR>:CtrlP ~/<CR>
-	nnoremap @n :CtrlP ~/.config/nvim<CR>
+	nnoremap <Leader>e :CtrlP ~/<CR>
+	nnoremap <Leader>E :CtrlPClearCache<CR>:CtrlP ~/<CR>
+	nnoremap <Leader>n :CtrlP ~/.config/nvim<CR>
 
 	" # japanese file search off
 	let g:ctrlp_use_migemo = 0
