@@ -15,8 +15,8 @@ nnoremap <Leader>rc :source ~/.config/nvim/init.vim<CR>
 nnoremap <CR> i<CR><Right><ESC>
 
 " tab change
-nnoremap <C-l> :w<CR>gt
-nnoremap <C-h> :w<CR>gT
+nnoremap <C-l> gt
+nnoremap <C-h> gT
 
 " tab move
 nnoremap <Leader>l :+tabmove<CR>
