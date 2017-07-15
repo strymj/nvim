@@ -51,11 +51,9 @@ inoremap <C-j> <ESC>o
 inoremap {{ {<CR>}<Up><ESC>o
 
 " neovim terminal mapping
-if has('nvim')
+if exists(':tnoremap')
 	tnoremap <ESC> <C-\><C-n>
 	tnoremap <C-q> <C-\><C-n>:q<CR>
-	" tnoremap <C-l> <C-\><C-n>gt
-	" tnoremap <C-h> <C-\><C-n>gT
 	tnoremap <C-j> <Down>
 	tnoremap <C-k> <Up>
 	tnoremap <C-w> <C-\><C-n><C-w>

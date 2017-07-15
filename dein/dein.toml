@@ -1,5 +1,27 @@
 # ##### dein plugin settings #####
 
+# easy commentout key -> gc, gcc
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+# easy insert () {} [] <> ...
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# expantion copy and paste
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
+hook_add = '''
+	nmap p <Plug>(yankround-p)
+	xmap p <Plug>(yankround-p)
+	nmap P <Plug>(yankround-P)
+	nmap gp <Plug>(yankround-gp)
+	xmap gp <Plug>(yankround-gp)
+	nmap gP <Plug>(yankround-gP)
+	nmap <C-p> <Plug>(yankround-prev)
+	nmap <C-n> <Plug>(yankround-next)
+'''
+
 # neovim terminal plugin
 [[plugins]]
 repo = 'kassio/neoterm'
@@ -8,14 +30,6 @@ hook_add = '''
 	nnoremap <silent> <Leader>c :T roscd && catkin_make<CR><c-w>j
 	nnoremap <silent> <Leader>p :T python %<CR><c-w>j
 '''
-
-# easy commentout key -> gc, gcc
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-# easy insert () {} [] <> ...
-[[plugins]]
-repo = 'tpope/vim-surround'
 
 # cool statusline
 [[plugins]]
@@ -43,20 +57,6 @@ hook_add = '''
 	set laststatus=2
 	" # hide --INSERT--
 	set noshowmode
-'''
-
-# expantion copy and paste
-[[plugins]]
-repo = 'LeafCage/yankround.vim'
-hook_add = '''
-	nmap p <Plug>(yankround-p)
-	xmap p <Plug>(yankround-p)
-	nmap P <Plug>(yankround-P)
-	nmap gp <Plug>(yankround-gp)
-	xmap gp <Plug>(yankround-gp)
-	nmap gP <Plug>(yankround-gP)
-	nmap <C-p> <Plug>(yankround-prev)
-	nmap <C-n> <Plug>(yankround-next)
 '''
 
 # file explorer
