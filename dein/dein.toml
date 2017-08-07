@@ -47,7 +47,7 @@ hook_add = '''
 
 	function! FilePath()
 		if winwidth(0) > 90
-			return expand("%:p")
+			return expand("%:s")
 		else
 			return expand("%:t")
 		endif
