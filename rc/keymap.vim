@@ -1,8 +1,5 @@
 " ##### neovim keymap settings #####
 
-" set mapleader
-let mapleader = "\<Space>"
-
 " reload init.vim
 nnoremap <Leader>rc :source ~/.config/nvim/init.vim<CR>
 

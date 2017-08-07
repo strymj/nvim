@@ -1,0 +1,76 @@
+" ########## vimperator config ##########
+
+" set title string
+set titlestring=Firefox
+
+" piyopiyo error bell off
+set visualbell
+
+" insertmode off when page changed
+set focuscontent
+
+
+
+" ########## hint settings ##########
+
+" hint mode char
+set hintchars="ghfjdkslayturieowpqnbmvcxz"
+
+" hint style
+hi Hint font-family: Ubuntu\ Mono; font-size: 20px; font-weight: regular; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #33cccc;
+hi HintElem color: gray; background-color: #a1e4e6;
+hi HintActive color: black; background-color: #ff8700;
+
+" hint mode with iem off
+nnoremap f :!fcitx-remote -c<Enter><ESC>f
+nnoremap F :!fcitx-remote -c<Enter><ESC>F
+
+
+
+" ########## key mapping ##########
+
+" restart firefox
+nnoremap <C-r> :restart<CR>
+
+" open new tab
+noremap O :tabopen<Space>
+
+" private browsing
+noremap <C-p> :winopen -private<CR>
+
+" google it
+nnoremap s :open<Space>google<Space>
+nnoremap S :tabopen<Space>google<Space>
+
+" mybookmarks
+nnoremap b :open<Space>about:mybookmarks<Enter>
+nnoremap B :tabopen<Space>about:mybookmarks<Enter>
+
+" next previous tab
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+
+" move tab
+nnoremap <Space>l :tabmove! +1<CR>
+nnoremap <Space>h :tabmove! -1<CR>
+
+" smooth scroll using <Down> <Up>
+nnoremap j <Down><Down><Down>
+nnoremap k <Up><Up><Up>
+nnoremap J <PageDown>
+nnoremap K <PageUp>
+
+" nomalmode to visualmode
+nnoremap v cv
+
+" insert visual mode to nomalmode
+inoremap <C-[> <ESC>
+vnoremap <C-[> <ESC><ESC><ESC>
+
+" select all using Ctrl+a
+noremap <C-a> i<C-a>
+inoremap <C-a> <insert><C-a><insert>
+
+" ynk setting
+vnoremap y y<ESC><ESC><ESC>
+
