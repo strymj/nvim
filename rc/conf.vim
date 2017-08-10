@@ -33,7 +33,7 @@ augroup AutoBufRead
 augroup END
 
 " exclude files when findinf
-set wildignore+=*.git,*.zip,*.png,*.jpg,*/Trash 
+set wildignore+=*.git,*.zip,*.png,*.jpg,*/Trash
 
 
 " set mapleader

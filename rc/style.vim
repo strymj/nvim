@@ -11,6 +11,12 @@ augroup AutoTrans
 	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
 augroup END
 
+" highlight trailing spaces for markdown files
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd BufRead,BufNewFile,ColorScheme *.md highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd BufRead,BufNewFile *.md match TrailingSpaces /\s\+$/
+augroup END
 
 " neovim terminal style
 if has('nvim')

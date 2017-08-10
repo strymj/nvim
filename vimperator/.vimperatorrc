@@ -1,7 +1,7 @@
 " ########## vimperator config ##########
 
 " set title string
-set titlestring=Firefox
+"set titlestring="Firefox"
 
 " piyopiyo error bell off
 set visualbell
@@ -19,7 +19,7 @@ set hintchars="ghfjdkslayturieowpqnbmvcxz"
 " hint style
 hi Hint font-family: Ubuntu\ Mono; font-size: 20px; font-weight: regular; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #33cccc;
 hi HintElem color: gray; background-color: #a1e4e6;
-hi HintActive color: black; background-color: #ff8700;
+hi HintActive color: gray; background-color: #a1e4e6;
 
 " hint mode with iem off
 nnoremap f :!fcitx-remote -c<Enter><ESC>f
@@ -51,8 +51,8 @@ nnoremap <C-l> gt
 nnoremap <C-h> gT
 
 " move tab
-nnoremap <Space>l :tabmove! +1<CR>
-nnoremap <Space>h :tabmove! -1<CR>
+nnoremap @l :tabmove! +1<CR>
+nnoremap @h :tabmove! -1<CR>
 
 " smooth scroll using <Down> <Up>
 nnoremap j <Down><Down><Down>
@@ -67,8 +67,8 @@ nnoremap v cv
 inoremap <C-[> <ESC>
 vnoremap <C-[> <ESC><ESC><ESC>
 
-" select all using Ctrl+a
-noremap <C-a> i<C-a>
+" select all using Ctrl-a
+nnoremap <C-a> i<C-a>
 inoremap <C-a> <insert><C-a><insert>
 
 " ynk setting
