@@ -64,22 +64,6 @@ hook_add = '''
 repo = 'kien/ctrlp.vim'
 hook_add = '''
 
-fu! s:PrtClearC()
-	if s:itemtype == 0
-		cal ctrlp#clr()
-	elsei s:itemtype > 2
-		cal ctrlp#clr(s:statypes[s:itemtype][1])
-	en
-	if s:itemtype == 2
-		let g:ctrlp_lines = ctrlp#mrufiles#refresh()
-	el
-		cal ctrlp#setlines()
-	en
-	let s:force = 1
-	cal s:BuildPrompt(1)
-	unl s:force
-endf
-
 	" # prevent from overwriting lightline
 	let g:ctrlp_buffer_func = {
 		\ 'enter': 'CtrlPEnter',
@@ -88,13 +72,11 @@ endf
 
 	" # when CtrlP buffer opened, lightline and statusline off
 	function! CtrlPEnter()
-		let w:lightline = 0
 		set laststatus=0
 	endfunction
 
 		" # when CtrlP buffer closed, lightline and statusline on
 	function! CtrlPLeave()
-		let w:lightline = 1
 		set laststatus=2
 	endfunction
 
@@ -130,6 +112,8 @@ endf
 	let g:ctrlp_lazy_update = 200
 	" # set ctrlp window size
 	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
+	" " # do not show dotfiles
+	let g:ctrlp_show_hidden = 1
 	" # ignore specific files
 	let g:ctrlp_custom_ignore = {
 		\ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -137,10 +121,6 @@ endf
 		\ 'link': 'some_bad_symbolic_links',
 	\ }
 
-
-
-	" " # do not show dotfiles
-	" let g:ctrlp_show_hidden = 1
 '''
 
 # colorscheme
