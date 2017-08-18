@@ -1,13 +1,13 @@
 " ########## vimperator config ##########
 
 " set title string
-"set titlestring="Firefox"
+set titlestring="Firefox"
 
 " piyopiyo error bell off
 set visualbell
 
 " insertmode off when page changed
-set focuscontent
+" set focuscontent
 
 
 
