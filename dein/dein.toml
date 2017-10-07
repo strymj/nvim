@@ -26,9 +26,9 @@ hook_add = '''
 [[plugins]]
 repo = 'kassio/neoterm'
 hook_add = '''
-	nnoremap <silent> <Leader>t :Tnew<CR><c-w>j
-	nnoremap <silent> <Leader>c :T roscd && catkin_make<CR><c-w>j
-	nnoremap <silent> <Leader>p :T python %<CR><c-w>j
+	nnoremap <silent> <Leader>t :Tnew<CR><c-w>ji
+	nnoremap <silent> <Leader>c :T roscd && catkin_make<CR><c-w>ji
+	nnoremap <silent> <Leader>p :T python %<CR><c-w>ji
 '''
 
 # cool statusline
@@ -64,6 +64,30 @@ hook_add = '''
 repo = 'kien/ctrlp.vim'
 hook_add = '''
 
+	" # japanese file search off
+	let g:ctrlp_use_migemo = 0
+	" # ambiguous search off
+	let g:ctrlp_regexp = 1
+	" # use cache
+	let g:ctrlp_use_caching = 1
+	" # do not delete cache
+	let g:ctrlp_clear_cache_on_exit = 0
+	" # clear cache mapping
+	let g:ctrlp_prompt_mappings = { 'PrtClearCache()': ['<C-r>'] }
+	" # lazy search on (wait xxx[ms] <1:default ->250[ms]>)
+	let g:ctrlp_lazy_update = 200 
+	" # set ctrlp window size
+	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
+	" " # do not show dotfiles
+	let g:ctrlp_show_hidden = 0
+	" # ignore specific files
+	let g:ctrlp_custom_ignore = {
+		\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+		\ 'file': '\v\.(exe|so|dll|o)$',
+		\ 'link': 'some_bad_symbolic_links',
+	\ }
+
+
 	" # prevent from overwriting lightline
 	let g:ctrlp_buffer_func = {
 		\ 'enter': 'CtrlPEnter',
@@ -92,34 +116,23 @@ hook_add = '''
 		autocmd VimEnter * call CtrlPIfEmpty()
 	augroup END
 
+
+	function CtrlPWithNowFName()
+		let l:lazy_time = g:ctrlp_lazy_update
+		let g:ctrlp_lazy_update = 0
+		let g:ctrlp_default_input = fnamemodify(expand("%"), ":t:r")
+		CtrlP ~/
+		let g:ctrlp_lazy_update = l:lazy_time
+		let g:ctrlp_default_input = 0
+	endfunction
+
+
 	" # CtrlP keymapping
 	let g:ctrlp_map = '<nop>'
-	nnoremap <Leader>e :CtrlP ~/<CR>
-	nnoremap <Leader>E :CtrlPClearCache<CR>:CtrlP ~/<CR>
-	nnoremap <Leader>n :CtrlP ~/.config/nvim<CR>
-
-	" # japanese file search off
-	let g:ctrlp_use_migemo = 0
-	" # ambiguous search off
-	let g:ctrlp_regexp = 1
-	" # use cache
-	let g:ctrlp_use_caching = 1
-	" # do not delete cache
-	let g:ctrlp_clear_cache_on_exit = 0
-	" # clear cache mapping
-	let g:ctrlp_prompt_mappings = { 'PrtClearCache()': ['<C-r>'] }
-	" # lazy search on (wait xxx[ms] <1:default ->250[ms]>)
-	let g:ctrlp_lazy_update = 200
-	" # set ctrlp window size
-	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
-	" " # do not show dotfiles
-	let g:ctrlp_show_hidden = 0
-	" # ignore specific files
-	let g:ctrlp_custom_ignore = {
-		\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-		\ 'file': '\v\.(exe|so|dll|o)$',
-		\ 'link': 'some_bad_symbolic_links',
-	\ }
+	nnoremap <silent> <Leader>e :CtrlP ~/<CR>
+	nnoremap <silent> <Leader>E :CtrlPClearCache<CR>:CtrlP ~/<CR>
+	nnoremap <silent> <Leader>n :CtrlP ~/.config/nvim<CR>
+	nnoremap <silent> <Leader>w :call CtrlPWithNowFName()<CR>
 
 '''
 
