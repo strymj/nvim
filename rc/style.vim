@@ -9,14 +9,18 @@ augroup AutoTrans
 	autocmd Colorscheme * highlight Folded ctermbg=none
 	autocmd Colorscheme * highlight MatchParen ctermbg=none
 	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
+	autocmd Colorscheme * highlight! link TabLine LineNr
+	autocmd Colorscheme * highlight! link TabLineSel Underlined
+	autocmd Colorscheme * highlight TabLineFill ctermbg=none cterm=none
 augroup END
 
 " highlight trailing spaces for markdown files
 augroup HighlightTrailingSpaces
-  autocmd!
-  autocmd BufRead,BufNewFile,ColorScheme *.md highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-  autocmd BufRead,BufNewFile *.md match TrailingSpaces /\s\+$/
+	autocmd!
+	autocmd BufRead,BufNewFile,ColorScheme *.md highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+	autocmd BufRead,BufNewFile *.md match TrailingSpaces /\s\+$/
 augroup END
+
 
 " neovim terminal style
 " if has('nvim')
