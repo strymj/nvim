@@ -9,9 +9,11 @@ augroup AutoTrans
 	autocmd Colorscheme * highlight Folded ctermbg=none
 	autocmd Colorscheme * highlight MatchParen ctermbg=none
 	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
+	autocmd Colorscheme * highlight CursorLine ctermbg=none
+	autocmd Colorscheme * highlight! link CursorLineNr Tag
 	autocmd Colorscheme * highlight! link TabLine LineNr
 	autocmd Colorscheme * highlight! link TabLineSel Underlined
-	autocmd Colorscheme * highlight TabLineFill ctermbg=none cterm=none
+	autocmd Colorscheme * highlight TabLineFill ctermbg=none
 augroup END
 
 " highlight trailing spaces for markdown files
