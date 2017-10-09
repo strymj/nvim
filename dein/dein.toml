@@ -39,7 +39,12 @@ hook_add = '''
 		\ 'enable': { 'tabline': 0 },
 		\ 'colorscheme': 'wombat',
 		\ 'active': {
-			\ 'left': [ ['mode', 'paste'], ['readonly', 'filepath', 'modified'] ]
+			\ 'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified'] ],
+			\ 'right': [ ['percent'], ['filetype'], ['fileencoding'] ]
+		\ },
+		\ 'inactive': {
+			\ 'left': [ ['filename'] ],
+			\ 'right': [ ['percent'], ['filetype'] ]
 		\ },
 		\ 'component_function':{
 			\ 'filepath': 'FilePath'
