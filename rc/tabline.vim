@@ -1,4 +1,5 @@
 " ##### tabline settings #####
+" usage : set tabline=%!MyTabLine()
 
 function MyTabLine()
 	let s = ''
@@ -58,8 +59,3 @@ function MyTabLabel(n, tabcharnum)
 
 	return output
 endfunction
-
-augroup AutoTabLine
-	autocmd!
-	autocmd VimEnter * set tabline=%!MyTabLine()
-augroup END

@@ -52,8 +52,7 @@ set ignorecase
 " if search string contains Uppercase, don't apply ignorecase
 set smartcase
 
-" auto indent settings
-" set smartindent
+" indent settings   avoid namespace indentation
 set cindent
 set cinoptions+=N-s
 
@@ -66,10 +65,14 @@ set foldmethod=marker
 " set foldmethod=syntax
 " set foldnestmax=3
 
-" scrolloff
+" scrolloff setting
 set scrolloff=3
 
 " tab setting
 set tabstop=2
 set shiftwidth=2
+
+" my tabline setting
+source ~/.config/nvim/rc/tabline.vim
+set tabline=%!MyTabLine()
 
