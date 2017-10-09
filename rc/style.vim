@@ -73,6 +73,5 @@ set tabstop=2
 set shiftwidth=2
 
 " my tabline setting
-source ~/.config/nvim/rc/tabline.vim
 set tabline=%!MyTabLine()
 
