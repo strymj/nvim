@@ -10,10 +10,10 @@ augroup AutoTrans
 	autocmd Colorscheme * highlight MatchParen ctermbg=none
 	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
 	autocmd Colorscheme * highlight CursorLine ctermbg=none
-	autocmd Colorscheme * highlight! link CursorLineNr Tag
-	autocmd Colorscheme * highlight! link TabLine LineNr
+	autocmd Colorscheme * highlight! link CursorLineNr Special
+	autocmd Colorscheme * highlight! link TabLine Comment
 	autocmd Colorscheme * highlight! link TabLineSel Underlined
-	autocmd Colorscheme * highlight TabLineFill ctermbg=none
+	autocmd Colorscheme * highlight TabLineFill cterm=none ctermbg=none
 augroup END
 
 " highlight trailing spaces for markdown files
@@ -37,14 +37,15 @@ augroup END
 " use 256 colors
 set t_Co=256
 
+" set titlebar
+set title
+
 " use syntax
 syntax on
 
 " set row number
 set number
-
-" set titlebar
-set title
+set cursorline
 
 " highlight and incremental search result
 set incsearch

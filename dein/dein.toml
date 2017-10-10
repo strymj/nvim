@@ -26,9 +26,20 @@ hook_add = '''
 [[plugins]]
 repo = 'kassio/neoterm'
 hook_add = '''
-	nnoremap <silent> <Leader>t :Tnew<CR><c-w>ji
-	nnoremap <silent> <Leader>c :T roscd && catkin_make<CR><c-w>ji
-	nnoremap <silent> <Leader>p :T python %<CR><c-w>ji
+	let g:neoterm_autoinsert = 1
+
+	function NeotermOpenNewTab()
+		let default_setting = g:neoterm_split_on_tnew
+		let g:neoterm_split_on_tnew = 0
+		tabnew
+		Tnew
+		let g:neoterm_split_on_tnew = default_setting
+	endfunction
+
+	nnoremap <silent> <Leader>t :Tnew<CR>
+	nnoremap <silent> <Leader>T :call NeotermOpenNewTab()<CR>
+	nnoremap <silent> <Leader>c :T roscd && catkin_make<CR>
+	nnoremap <silent> <Leader>p :T python %<CR>
 '''
 
 # cool statusline
@@ -146,10 +157,7 @@ hook_add = '''
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
-	augroup AutoColor
-		autocmd!
-		autocmd VimEnter * nested colorscheme iceberg
-	augroup END 
+	colorscheme iceberg
 '''
 
 # repo = 'bcicen/vim-vice'
