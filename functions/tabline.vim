@@ -31,6 +31,11 @@ function MyTabLabel(n, tabcharnum)
 		let filename = "[no name]"
 	endif
 
+	let matchnum = match(filename, "neoterm")
+	if 0 <= matchnum
+		let filename = filename[matchnum:strlen(filename)-1]
+	endif
+
 	let extension = fnamemodify(fullpath, ":e")
 	if 0 < strlen(extension)
 		let extension = "." . extension
