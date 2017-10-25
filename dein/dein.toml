@@ -170,7 +170,7 @@ hook_add = '''
 
 # smart_tabline
 [[plugins]]
-reop = 'myrobo/smart_tabline.vim'
+repo = 'myrobo/smart_tabline.vim'
 
 # repo = 'bcicen/vim-vice'
 # repo = 'altercation/vim-colors-solarized'
