@@ -1,7 +1,7 @@
 " ##### neovim style settings #####
 
 " transparent background settings
-augroup AutoTrans
+augroup AutoColor
 	autocmd!
 	autocmd Colorscheme * highlight Normal ctermbg=none
 	autocmd Colorscheme * highlight NonText ctermbg=none
@@ -74,7 +74,4 @@ set scrolloff=3
 " tab setting
 set tabstop=2
 set shiftwidth=2
-
-" my tabline setting
-" set tabline=%!MyTabLine()
 
