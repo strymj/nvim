@@ -27,11 +27,19 @@ hook_add = '''
 repo = 'kassio/neoterm'
 hook_add = '''
 	let g:neoterm_autoinsert = 1
+	let g:neoterm_autoscroll = 1
 
 	function NeotermOpenNewTab()
 		let default_setting = g:neoterm_split_on_tnew
 		let g:neoterm_split_on_tnew = 0
 		tabnew
+		Tnew
+		let g:neoterm_split_on_tnew = default_setting
+	endfunction
+
+	function NeotermOpen()
+		let default_setting = g:neoterm_split_on_tnew
+		let g:neoterm_split_on_tnew = 0
 		Tnew
 		let g:neoterm_split_on_tnew = default_setting
 	endfunction
@@ -137,7 +145,7 @@ hook_add = '''
 	function CtrlPWithNowFName()
 		let l:lazy_time = g:ctrlp_lazy_update
 		let g:ctrlp_lazy_update = 0
-		let g:ctrlp_default_input = fnamemodify(expand("%"), ":t:r")
+		let g:ctrlp_default_input = fnamemodify(expand("%"), ":t:r") . "\\."
 		CtrlP ~/
 		let g:ctrlp_lazy_update = l:lazy_time
 		let g:ctrlp_default_input = 0
@@ -159,6 +167,10 @@ repo = 'cocopon/iceberg.vim'
 hook_add = '''
 	colorscheme iceberg
 '''
+
+# smart_tabline
+[[plugins]]
+reop = 'myrobo/smart_tabline.vim'
 
 # repo = 'bcicen/vim-vice'
 # repo = 'altercation/vim-colors-solarized'

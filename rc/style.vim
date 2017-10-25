@@ -76,5 +76,5 @@ set tabstop=2
 set shiftwidth=2
 
 " my tabline setting
-set tabline=%!MyTabLine()
+" set tabline=%!MyTabLine()
 
