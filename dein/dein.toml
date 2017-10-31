@@ -29,7 +29,7 @@ hook_add = '''
 	let g:neoterm_autoinsert = 1
 	let g:neoterm_autoscroll = 1
 
-	function NeotermOpenNewTab()
+	function! NeotermOpenNewTab()
 		let default_setting = g:neoterm_split_on_tnew
 		let g:neoterm_split_on_tnew = 0
 		tabnew
@@ -37,7 +37,7 @@ hook_add = '''
 		let g:neoterm_split_on_tnew = default_setting
 	endfunction
 
-	function NeotermOpen()
+	function! NeotermOpen()
 		let default_setting = g:neoterm_split_on_tnew
 		let g:neoterm_split_on_tnew = 0
 		Tnew
@@ -130,7 +130,7 @@ hook_add = '''
 	endfunction
 
 	" # when you start nvim with no file, use CtrlP
-	function CtrlPIfEmpty()
+	function! CtrlPIfEmpty()
 		if @% == ""
 			CtrlP ~/
 		endif
@@ -142,13 +142,30 @@ hook_add = '''
 	augroup END
 
 
-	function CtrlPWithNowFName()
+	function! CtrlPWithNowFName()
 		let l:lazy_time = g:ctrlp_lazy_update
 		let g:ctrlp_lazy_update = 0
 		let g:ctrlp_default_input = fnamemodify(expand("%"), ":t:r") . "\\."
 		CtrlP ~/
 		let g:ctrlp_lazy_update = l:lazy_time
 		let g:ctrlp_default_input = 0
+	endfunction
+
+
+	let g:ctrlp_tabpage_position = 'ac'
+	let g:ctrlp_open_func = {
+    \ 'files'     : 'MyCtrlPOpenFcn',
+	\ }
+
+	" # tabpage position
+	function! MyCtrlPOpenFcn(action, line) 
+		if a:action == 'v'
+			" # tabpage open before the current tab page
+			call call('ctrlp#acceptfile', ["t", a:line])
+			tabmove -
+    else
+			call call('ctrlp#acceptfile', [a:action, a:line])
+		endif
 	endfunction
 
 
