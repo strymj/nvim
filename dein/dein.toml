@@ -86,7 +86,7 @@ hook_add = '''
 
 # file explorer
 [[plugins]]
-repo = 'kien/ctrlp.vim'
+repo = 'ctrlpvim/ctrlp.vim'
 hook_add = '''
 
 	" # japanese file search off
@@ -185,14 +185,27 @@ hook_add = '''
 	colorscheme iceberg
 '''
 
-# smart_tabline
-[[plugins]]
-repo = 'myrobo/smart_tabline.vim'
-
 # repo = 'bcicen/vim-vice'
 # repo = 'altercation/vim-colors-solarized'
 # repo = 'baverman/vim-babymate256'
 # repo = 'romainl/Apprentice'
 # repo = 'mbbill/vim-seattle'
 # repo = 'cocopon/iceberg.vim'
+
+# smart_tabline
+[[plugins]]
+repo = 'myrobo/smart_tabline.vim'
+
+# game
+[[plugins]]
+repo = 'rbtnn/game_engine.vim'
+[[plugins]]
+repo = 'rbtnn/mario.vim'
+[[plugins]]
+repo = 'rbtnn/puyo.vim'
+rev = 'puyoteto'
+[[plugins]]
+repo = 'rbtnn/reversi.vim'
+
+
 
