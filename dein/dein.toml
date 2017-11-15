@@ -29,25 +29,21 @@ hook_add = '''
 	let g:neoterm_autoinsert = 1
 	let g:neoterm_autoscroll = 1
 
+	function! NeotermOpenVSplit()
+		let g:neoterm_split_on_tnew = 1
+		Tnew
+	endfunction
+
 	function! NeotermOpenNewTab()
-		let default_setting = g:neoterm_split_on_tnew
 		let g:neoterm_split_on_tnew = 0
 		tabnew
 		Tnew
-		let g:neoterm_split_on_tnew = default_setting
 	endfunction
 
-	function! NeotermOpen()
-		let default_setting = g:neoterm_split_on_tnew
-		let g:neoterm_split_on_tnew = 0
-		Tnew
-		let g:neoterm_split_on_tnew = default_setting
-	endfunction
-
-	nnoremap <silent> <Leader>t :Tnew<CR>
 	nnoremap <silent> <Leader>T :call NeotermOpenNewTab()<CR>
-	nnoremap <silent> <Leader>c :T roscd && catkin_make<CR>
-	nnoremap <silent> <Leader>p :T python %<CR>
+	nnoremap <silent> <Leader>t :call NeotermOpenVSplit()<CR>
+	nnoremap <silent> <Leader>c :call NeotermOpenVSplit()<CR>roscd && catkin_make<CR>
+	nnoremap <silent> <Leader>p :call NeotermOpenVSplit() python %<CR>
 '''
 
 # cool statusline
@@ -152,21 +148,21 @@ hook_add = '''
 	endfunction
 
 
-	let g:ctrlp_tabpage_position = 'ac'
-	let g:ctrlp_open_func = {
-    \ 'files'     : 'MyCtrlPOpenFcn',
-	\ }
+	" let g:ctrlp_tabpage_position = 'ac'
+	" let g:ctrlp_open_func = {
+  "   \ 'files'     : 'MyCtrlPOpenFcn',
+	" \ }
 
-	" # tabpage position
-	function! MyCtrlPOpenFcn(action, line) 
-		if a:action == 'v'
-			" # tabpage open before the current tab page
-			call call('ctrlp#acceptfile', ["t", a:line])
-			tabmove -
-    else
-			call call('ctrlp#acceptfile', [a:action, a:line])
-		endif
-	endfunction
+	" " # tabpage position
+	" function! MyCtrlPOpenFcn(action, line) 
+	" 	if a:action == 'v'
+	" 		" # tabpage open before the current tab page
+	" 		call call('ctrlp#acceptfile', ["t", a:line])
+	" 		tabmove -
+  "   else
+	" 		call call('ctrlp#acceptfile', [a:action, a:line])
+	" 	endif
+	" endfunction
 
 
 	" # CtrlP keymapping
@@ -196,16 +192,17 @@ hook_add = '''
 [[plugins]]
 repo = 'myrobo/smart_tabline.vim'
 
-# game
+
+# games
 [[plugins]]
 repo = 'rbtnn/game_engine.vim'
 [[plugins]]
 repo = 'rbtnn/mario.vim'
+depends = 'game_engine.vim'
 [[plugins]]
 repo = 'rbtnn/puyo.vim'
 rev = 'puyoteto'
+depends = 'game_engine.vim'
 [[plugins]]
 repo = 'rbtnn/reversi.vim'
-
-
-
+depends = 'game_engine.vim'
