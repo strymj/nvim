@@ -3,11 +3,6 @@
 " reload init.vim
 nnoremap <Leader>rc :source ~/.config/nvim/init.vim<CR>
 
-" write and quit
-" nnoremap <silent> <C-w> :w<CR>
-" inoremap <silent> <C-w> <ESC>:w<CR>
-" nnoremap <silent> <C-q> :q<CR>
-
 " normalmode Enter
 nnoremap <CR> i<CR><Right><ESC>
 
@@ -57,4 +52,3 @@ if exists(':tnoremap')
 	tnoremap <C-w> <C-\><C-n><C-w>
 	tnoremap <C-h> <BS>
 endif
-

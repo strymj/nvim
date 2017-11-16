@@ -24,13 +24,10 @@ set noerrorbells
 " filetype auto detect
 filetype plugin indent on
 
-" New Buffer settings
-augroup AutoBufRead
+" regard .launch as xml file
+augroup AutoLaunchAsXml
 	autocmd!
-	" regard .launch as xml file
 	autocmd BufRead,BufNewFile *.launch setfiletype xml
-	" auto commentout off
-	" autocmd BufRead,BufNewFile * set formatoptions-=ro
 augroup END
 
 " exclude files when findinf
@@ -39,4 +36,3 @@ set wildignore+=*.git,*.zip,*.png,*.jpg,*/Trash
 
 " set mapleader
 let mapleader = "\<Space>"
-

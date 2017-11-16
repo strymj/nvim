@@ -24,16 +24,6 @@ augroup HighlightTrailingSpaces
 augroup END
 
 
-" neovim terminal style
-" if has('nvim')
-" 	augroup term_start_insert
-" 		autocmd!
-" 		" normal -> terminal mode when entering terminal window
-" 		autocmd BufWinEnter,WinEnter term://* startinsert
-" 	augroup END
-" endif
-
-
 " use 256 colors
 set t_Co=256
 
