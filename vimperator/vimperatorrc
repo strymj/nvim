@@ -9,6 +9,18 @@ set visualbell
 " insertmode off when page changed
 " set focuscontent
 
+" ########## new tab position settings ##########
+" add new tab next to current tab (change gBrowser.addTab)
+js <<EOM
+gBrowser.addTab = liberator.eval(
+    '(' +
+    gBrowser.addTab.toSource()
+            .replace(/var\s*aRelatedToCurrent;/, 'var aRelatedToCurrent = true;')
+            .replace(/aRelatedToCurrent\s*=\s*params\.relatedToCurrent;/, 'aRelatedToCurrent = params.relatedToCurrent === undefined ? true : params.relatedToCurrent;') +
+    ')',
+    gBrowser.addTab);
+EOM
+
 
 
 " ########## hint settings ##########
@@ -29,22 +41,26 @@ nnoremap F :!fcitx-remote -c<Enter><ESC>F
 
 " ########## key mapping ##########
 
+" There is some difference between <C-[> and <ESC>
+nnoremap <C-[> <ESC>
+
 " restart firefox
 nnoremap <C-r> :restart<CR>
 
 " open new tab
-noremap O :tabopen<Space>
+noremap o :open<Space>
+noremap no :tabopen<Space>
 
 " private browsing
 noremap <C-p> :winopen -private<CR>
 
 " google it
 nnoremap s :open<Space>google<Space>
-nnoremap S :tabopen<Space>google<Space>
+nnoremap ns :tabopen<Space>google<Space>
 
 " mybookmarks
 nnoremap b :open<Space>about:mybookmarks<Enter>
-nnoremap B :tabopen<Space>about:mybookmarks<Enter>
+nnoremap nb :tabopen<Space>about:mybookmarks<Enter>
 
 " next previous tab
 nnoremap <C-l> gt
