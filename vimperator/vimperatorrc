@@ -9,8 +9,10 @@ set visualbell
 " insertmode off when page changed
 " set focuscontent
 
+
 " ########## new tab position settings ##########
 " add new tab next to current tab (change gBrowser.addTab)
+
 js <<EOM
 gBrowser.addTab = liberator.eval(
     '(' +
@@ -20,7 +22,6 @@ gBrowser.addTab = liberator.eval(
     ')',
     gBrowser.addTab);
 EOM
-
 
 
 " ########## hint settings ##########
@@ -47,20 +48,20 @@ nnoremap <C-[> <ESC>
 " restart firefox
 nnoremap <C-r> :restart<CR>
 
+" private browsing
+nnoremap <C-p> :winopen -private<CR>
+
 " open new tab
 noremap o :open<Space>
-noremap no :tabopen<Space>
-
-" private browsing
-noremap <C-p> :winopen -private<CR>
+noremap O :tabopen<Space>
 
 " google it
 nnoremap s :open<Space>google<Space>
-nnoremap ns :tabopen<Space>google<Space>
+nnoremap S :tabopen<Space>google<Space>
 
 " mybookmarks
 nnoremap b :open<Space>about:mybookmarks<Enter>
-nnoremap nb :tabopen<Space>about:mybookmarks<Enter>
+nnoremap B :tabopen<Space>about:mybookmarks<Enter>
 
 " next previous tab
 nnoremap <C-l> gt
@@ -89,4 +90,3 @@ inoremap <C-a> <insert><C-a><insert>
 
 " ynk setting
 vnoremap y y<ESC><ESC><ESC>
-
