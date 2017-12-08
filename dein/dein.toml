@@ -31,13 +31,13 @@ hook_add = '''
 
 	function! NeotermOpenVSplit()
 		let g:neoterm_split_on_tnew = 1
-		Tnew
+		T cd %:h
 	endfunction
 
 	function! NeotermOpenNewTab()
 		let g:neoterm_split_on_tnew = 0
 		tabnew
-		Tnew
+		T cd %:h
 	endfunction
 
 	nnoremap <silent> <Leader>T :call NeotermOpenNewTab()<CR>
