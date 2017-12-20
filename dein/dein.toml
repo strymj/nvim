@@ -77,6 +77,8 @@ hook_add = '''
 repo = 'ctrlpvim/ctrlp.vim'
 hook_add = '''
 
+	" # maximum number of files to scan : no limit
+	let g:ctrlp_max_files = 0
 	" # japanese file search off
 	let g:ctrlp_use_migemo = 0
 	" # ambiguous search off
@@ -95,8 +97,8 @@ hook_add = '''
 	let g:ctrlp_show_hidden = 0
 	" # ignore specific files
 	let g:ctrlp_custom_ignore = {
-		\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-		\ 'file': '\v\.(exe|so|dll|o)$',
+		\ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
+		\ 'file': '\v\.(exe|so|a|dll|o|mp4|mp3|wav|png|jpg|pgm|zip|gz|bz2|pdf)$',
 		\ 'link': 'some_bad_symbolic_links',
 	\ }
 
