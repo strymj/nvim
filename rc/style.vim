@@ -24,9 +24,6 @@ augroup HighlightTrailingSpaces
 augroup END
 
 
-" use 256 colors
-set t_Co=256
-
 " set titlebar
 set title
 
@@ -64,4 +61,3 @@ set scrolloff=3
 " tab setting
 set tabstop=2
 set shiftwidth=2
-

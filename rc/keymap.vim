@@ -21,10 +21,10 @@ vnoremap j gj
 vnoremap k gk
 
 " mone to next word
-nnoremap <S-l> w
-nnoremap <S-h> b
-vnoremap <S-l> w
-vnoremap <S-h> b
+nnoremap <S-l> $
+nnoremap <S-h> 0
+vnoremap <S-l> $
+vnoremap <S-h> 0
 
 " indent correction
 nnoremap == mYgg=G'Y
@@ -33,7 +33,7 @@ nnoremap == mYgg=G'Y
 nnoremap <Leader>a mZggVG
 
 " searched highlight off
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " write next row
 nnoremap <C-j> o<ESC>

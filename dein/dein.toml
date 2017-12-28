@@ -27,23 +27,45 @@ hook_add = '''
 repo = 'kassio/neoterm'
 hook_add = '''
 	let g:neoterm_autoinsert = 1
-	let g:neoterm_autoscroll = 1
+	let g:neoterm_autoscroll = 0
+	let g:neoterm_split_on_tnew = 1
 
-	function! NeotermOpenVSplit()
-		let g:neoterm_split_on_tnew = 1
-		T cd %:h
+	function! NTermCurrentDir()
+		T cd && cd %:h
+		Topen
 	endfunction
 
-	function! NeotermOpenNewTab()
+	function! NTermNewTab()
 		let g:neoterm_split_on_tnew = 0
 		tabnew
-		T cd %:h
+		Tnew
+		let g:neoterm_split_on_tnew = 1
 	endfunction
 
-	nnoremap <silent> <Leader>T :call NeotermOpenNewTab()<CR>
-	nnoremap <silent> <Leader>t :call NeotermOpenVSplit()<CR>
-	nnoremap <silent> <Leader>c :call NeotermOpenVSplit()<CR>roscd && catkin_make<CR>
-	nnoremap <silent> <Leader>p :call NeotermOpenVSplit()<CR>python %<CR>
+	function! NTermCMake()
+		T cd && cd %:h
+		T source ~/.config/nvim/scripts/auto_cmake.sh
+		Topen
+	endfunction
+
+	function! NTermCatkinMake()
+		T roscd && catkin_make
+		Topen
+	endfunction
+
+	function! NTermPython()
+		T python %
+		Topen
+	endfunction
+
+
+	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
+	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
+	nnoremap <silent> <c-t><c-h> :call NTermCurrentDir()<CR>
+	nnoremap <silent> <c-t><c-n> :call NTermNewTab()<CR>
+	nnoremap <silent> <c-t><c-m> :call NTermCMake()<CR>
+	nnoremap <silent> <c-t><c-c> :call NTermCatkinMake()<CR>
+	nnoremap <silent> <c-t><c-p> :call NTermPython()<CR>
 '''
 
 # cool statusline
