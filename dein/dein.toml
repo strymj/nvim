@@ -43,7 +43,7 @@ hook_add = '''
 	endfunction
 
 	function! NTermCMake()
-		T cd && cd %:h
+		T cd && cd %:p:h
 		T source ~/.config/nvim/scripts/auto_cmake.sh
 		Topen
 	endfunction
