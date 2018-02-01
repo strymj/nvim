@@ -1,11 +1,9 @@
 " ##### dein install settings #####
 
-" for vim setting
-set runtimepath+=~/.cache/dein
-
 " install dir 
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let s:toml_file = expand('~/.config/nvim/dein') . '/plugins.toml'
 
 " dein installation check
 if &runtimepath !~# '/dein.vim'
@@ -18,12 +16,7 @@ endif
 " begin settings
 if dein#load_state(s:dein_dir)
 	call dein#begin(s:dein_dir)
-
-	" " read toml and cache
-	let s:toml = expand('~/.config/nvim/dein') . '/dein.toml'
-	call dein#load_toml(s:toml, {})
-
-	" end settings
+	call dein#load_toml(s:toml_file, {})
 	call dein#end()
 	call dein#save_state()
 endif
