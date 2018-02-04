@@ -5,9 +5,8 @@ language C
 
 set encoding=utf-8
 set fenc=utf-8
-" set ambiwidth=double
-" set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
-" set fileformats=unix,dos,mac
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
+set fileformats=unix,dos,mac
 
 " no .swp file
 set noswapfile
