@@ -11,7 +11,7 @@ augroup AutoColor
 	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
 	autocmd Colorscheme * highlight CursorLine ctermbg=none
 	autocmd Colorscheme * highlight! link CursorLineNr Special
-	autocmd Colorscheme * highlight! link TabLine Comment
+	autocmd Colorscheme * highlight! link TabLine LineNr
 	autocmd Colorscheme * highlight! link TabLineSel Underlined
 	autocmd Colorscheme * highlight TabLineFill cterm=none ctermbg=none
 augroup END
