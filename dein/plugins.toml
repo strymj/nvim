@@ -115,14 +115,16 @@ hook_add = '''
 	let g:ctrlp_lazy_update = 200 
 	" # set ctrlp window size
 	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
-	" " # do not show dotfiles
+	" # do not show dotfiles
 	let g:ctrlp_show_hidden = 0
+	" # custom command
+	let g:ctrlp_user_command = "ag -g '\\.(cpp|hpp|c|h|py|txt|sh|bash|cfg|md|launch|xml)$'"
 	" # ignore specific files
-	let g:ctrlp_custom_ignore = {
-		\ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
-		\ 'file': '\v\.(exe|so|a|dll|o|mp4|mp3|wav|png|jpg|pgm|zip|gz|bz2|pdf)$',
-		\ 'link': 'some_bad_symbolic_links',
-	\ }
+	" # let g:ctrlp_custom_ignore = {
+	" # 	\ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
+	" # 	\ 'file': '\v\.(ai|exe|so|a|dll|o|mp4|mp3|wav|png|jpg|pgm|zip|gz|bz2|pdf)$',
+	" # 	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS'
+	" # \ }
 
 	" # prevent from overwriting lightline
 	let g:ctrlp_buffer_func = {
