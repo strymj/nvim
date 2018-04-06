@@ -28,7 +28,7 @@ repo = 'kassio/neoterm'
 hook_add = '''
 	let g:neoterm_autoinsert = 1
 	let g:neoterm_autoscroll = 0
-	let g:neoterm_split_on_tnew = 1
+	" # let g:neoterm_split_on_tnew = 1
 
 	function! NTermCurrentDir()
 		T cd && cd %:h
@@ -118,7 +118,7 @@ hook_add = '''
 	" # do not show dotfiles
 	let g:ctrlp_show_hidden = 0
 	" # custom command
-	let g:ctrlp_user_command = "ag -g '\\.(cpp|hpp|c|h|py|txt|sh|bash|cfg|md|launch|xml)$'"
+	let g:ctrlp_user_command = "ag -g '\\.(cpp|hpp|c|h|py|txt|sh|bash|cfg|md|launch|xml|csv)$'"
 	" # ignore specific files
 	" # let g:ctrlp_custom_ignore = {
 	" # 	\ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
