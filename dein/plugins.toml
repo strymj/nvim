@@ -29,6 +29,7 @@ hook_add = '''
 	let g:neoterm_autoinsert = 1
 	let g:neoterm_autoscroll = 0
 	" # let g:neoterm_split_on_tnew = 1
+	let g:neoterm_default_mod = "belowright"
 
 	function! NTermCurrentDir()
 		T cd && cd %:h
@@ -36,10 +37,10 @@ hook_add = '''
 	endfunction
 
 	function! NTermNewTab()
-		let g:neoterm_split_on_tnew = 0
+		" # let g:neoterm_split_on_tnew = 0
 		tabnew
 		Tnew
-		let g:neoterm_split_on_tnew = 1
+		" # let g:neoterm_split_on_tnew = 1
 	endfunction
 
 	function! NTermCMake()
