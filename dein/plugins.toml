@@ -119,7 +119,7 @@ hook_add = '''
 	" # do not show dotfiles
 	let g:ctrlp_show_hidden = 0
 	" # custom command
-	let g:ctrlp_user_command = "ag -g '\\.(cpp|hpp|c|h|py|txt|sh|bash|cfg|md|launch|xml|csv)$'"
+	let g:ctrlp_user_command = "ag -g '\\.(cpp|hpp|c|h|py|txt|sh|bash|cfg|md|launch|xml|csv|toml|yaml)$'"
 	" # ignore specific files
 	" # let g:ctrlp_custom_ignore = {
 	" # 	\ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
