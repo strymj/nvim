@@ -59,14 +59,23 @@ hook_add = '''
 		Topen
 	endfunction
 
+	function! TexCompile()
+		T platex % && dvipdfmx %:p:r.dvi
+		Topen
+	endfunction
 
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
-	nnoremap <silent> <c-t><c-h> :call NTermCurrentDir()<CR>
-	nnoremap <silent> <c-t><c-n> :call NTermNewTab()<CR>
-	nnoremap <silent> <c-t><c-m> :call NTermCMake()<CR>
-	nnoremap <silent> <c-t><c-c> :call NTermCatkinMake()<CR>
-	nnoremap <silent> <c-t><c-p> :call NTermPython()<CR>
+	# nnoremap <silent> <c-t><c-h> :call NTermCurrentDir()<CR>
+	# nnoremap <silent> <c-t><c-n> :call NTermNewTab()<CR>
+	# nnoremap <silent> <c-t><c-m> :call NTermCMake()<CR>
+	# nnoremap <silent> <c-t><c-c> :call NTermCatkinMake()<CR>
+	# nnoremap <silent> <c-t><c-p> :call NTermPython()<CR>
+	
+	command! Tex call TexCompile()
+	command! Py call NTermPython()
+	command! Ros call NTermCatkinMake()
+	command! Make call NTermCMake()
 '''
 
 # cool statusline
@@ -119,7 +128,7 @@ hook_add = '''
 	" # do not show dotfiles
 	let g:ctrlp_show_hidden = 0
 	" # custom command
-	let g:ctrlp_user_command = "ag %s -g '\\.(cpp|hpp|c|h|py|txt|sh|bash|cfg|md|launch|xml|csv|toml|yaml)$'"
+	let g:ctrlp_user_command = "ag %s -g '\\.(cpp|hpp|c|h|py|txt|tex|sh|bash|cfg|md|launch|xml|csv|toml|yaml)$'"
 	" # ignore specific files
 	" # let g:ctrlp_custom_ignore = {
 	" # 	\ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
