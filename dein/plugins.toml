@@ -66,11 +66,11 @@ hook_add = '''
 
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
-	# nnoremap <silent> <c-t><c-h> :call NTermCurrentDir()<CR>
-	# nnoremap <silent> <c-t><c-n> :call NTermNewTab()<CR>
-	# nnoremap <silent> <c-t><c-m> :call NTermCMake()<CR>
-	# nnoremap <silent> <c-t><c-c> :call NTermCatkinMake()<CR>
-	# nnoremap <silent> <c-t><c-p> :call NTermPython()<CR>
+	" # nnoremap <silent> <c-t><c-h> :call NTermCurrentDir()<CR>
+	" # nnoremap <silent> <c-t><c-n> :call NTermNewTab()<CR>
+	" # nnoremap <silent> <c-t><c-m> :call NTermCMake()<CR>
+	" # nnoremap <silent> <c-t><c-c> :call NTermCatkinMake()<CR>
+	" # nnoremap <silent> <c-t><c-p> :call NTermPython()<CR>
 	
 	command! Tex call TexCompile()
 	command! Py call NTermPython()
