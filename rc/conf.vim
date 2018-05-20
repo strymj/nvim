@@ -15,6 +15,7 @@ set noswapfile
 " set directory=~/.vim/swp
 
 " link clipboard
+" set clipboard=unnamed,unnamedplus
 set clipboard=unnamedplus
 
 " piyopiyo bell off
