@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "##### FindGit.sh #####"
 
 target=".git"
 dir="build"
@@ -16,6 +15,8 @@ do
 	cd ..
 done
 
-if [ ${found} = "false" ]; then
-	echo "Cannot find ${target}"
+if [ ${found} = "true" ]; then
+	echo "[$0] Found ${target}."
+else
+	echo "[$0] Cannot find ${target}."
 fi

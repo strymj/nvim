@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "##### AutoCMake.sh #####"
 
 target="CMakeLists.txt"
 dir="build"
@@ -18,6 +17,8 @@ done
 
 if [ ${found} = "true" ]; then
 
+	echo "[$0] Found ${target}. Try CMake."
+
 	if [ ! -e ${dir} ]; then
 		mkdir ${dir}
 	fi
@@ -28,5 +29,5 @@ if [ ${found} = "true" ]; then
 	cmake ..
 	make
 else
-	echo "Cannot find ${target}"
+	echo "[$0] Cannot find ${target}."
 fi
