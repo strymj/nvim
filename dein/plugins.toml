@@ -95,28 +95,13 @@ hook_add = '''
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
 
-	command Make   call NTermCMake()
-	command Catkin call NTermCatkinMake()
-	command Python call NTermPython()
-	command Tex    call NTermTexCompile()
+	command MCMDmake   call NTermCMake()
+	command MCMDcatkin call NTermCatkinMake()
+	command MCMDpython call NTermPython()
+	command MCMDtex    call NTermTexCompile()
+	command -nargs=1 MCMDgit call GitPush(<f-args>)
 
-	command -nargs=1 MyCommand call MyCommand(<f-args>)
-	command -nargs=1 GitPush call GitPush(<f-args>)
-	nnoremap * :MyCommand 
-
-	function MyCommand(command)
-		if a:command == 'make'
-			call NTermCMake()
-		elseif a:command == 'catkin'
-			call NTermCatkinMake()
-		elseif a:command == 'python'
-			call NTermPython()
-		elseif a:command == 'tex'
-			call NTermTexCompile()
-		else
-			echo '[error] Unknown command.'
-		endif
-	endfunction
+	nnoremap * :MCMD
 '''
 
 # cool statusline
