@@ -95,13 +95,13 @@ hook_add = '''
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
 
-	command MCMDmake   call NTermCMake()
-	command MCMDcatkin call NTermCatkinMake()
-	command MCMDpython call NTermPython()
-	command MCMDtex    call NTermTexCompile()
-	command -nargs=1 MCMDgit call GitPush(<f-args>)
+	command MYCMDmake   call NTermCMake()
+	command MYCMDcatkin call NTermCatkinMake()
+	command MYCMDpython call NTermPython()
+	command MYCMDtex    call NTermTexCompile()
+	command -nargs=1 MYCMDgit call GitPush(<f-args>)
 
-	nnoremap * :MCMD
+	nnoremap * :MYCMD
 '''
 
 # cool statusline
