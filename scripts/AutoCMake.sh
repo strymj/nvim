@@ -1,14 +1,14 @@
 #!/bin/bash
-echo "##### auto_cmake.sh #####"
+echo "##### AutoCMake.sh #####"
 
-file="CMakeLists.txt"
+target="CMakeLists.txt"
 dir="build"
 max_depth=10
 
 found="false"
 for i in $(seq 1 ${max_depth})
 do
-	if [ -e ${file} ]; then
+	if [ -e ${target} ]; then
 		found="true"
 		break
 	fi
@@ -28,5 +28,5 @@ if [ ${found} = "true" ]; then
 	cmake ..
 	make
 else
-	echo "Cannot find CMakeLists.txt"
+	echo "Cannot find ${target}"
 fi

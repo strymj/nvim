@@ -31,51 +31,92 @@ hook_add = '''
 	" # let g:neoterm_split_on_tnew = 1
 	let g:neoterm_default_mod = "belowright"
 
-	function! NTermCurrentDir()
-		T cd && cd %:h
-		Topen
-	endfunction
-
-	function! NTermNewTab()
+	function NTermNewTab()
 		" # let g:neoterm_split_on_tnew = 0
 		tabnew
 		Tnew
 		" # let g:neoterm_split_on_tnew = 1
 	endfunction
 
-	function! NTermCMake()
-		T cd && cd %:p:h
-		T source ~/.config/nvim/scripts/auto_cmake.sh
+	function NTermCurrentDir()
+		let l:cmd = "cd " .expand("%:p:h")
+		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
 
-	function! NTermCatkinMake()
-		T roscd && catkin_make
+	function NTermCMake()
+		let l:cmd = "cd " .expand("%:p:h")
+		let l:cmd = " && ~/.config/nvim/scripts/AutoCMake.sh"
+		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
 
-	function! NTermPython()
-		T python %
+	function NTermCatkinMake()
+		let l:cmd = "roscd"
+		let l:cmd = l:cmd . " && catkin_make"
+		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
 
-	function! TexCompile()
-		T platex % && dvipdfmx %:p:r.dvi
+	function NTermPython()
+		if expand("%:e") != 'py'
+			echo '[error] Invalid file extension.'
+			return
+		endif
+
+		let l:cmd = "python " .expand("%:p")
+		call neoterm#exec({ 'cmd': [ cmd , '' ] })
+		Topen
+	endfunction
+
+	function NTermTexCompile()
+		if expand("%:e") != 'tex'
+			echo '[error] Invalid file extension.'
+			return
+		endif
+
+		let l:cmd = "cd " .expand("%:p:h")
+		let l:cmd = l:cmd . " && platex" . expand("%")
+		let l:cmd = l:cmd . " && dvipdfmx " . expand("%:p:r") . dvi
+		call neoterm#exec({ 'cmd': [ cmd , '' ] })
+		Topen
+	endfunction
+
+	function GitPush( comment )
+		let l:cmd = "cd " .expand("%:p:h")
+		let l:cmd = l:cmd . " && source ~/.config/nvim/scripts/FindGit.sh"
+		let l:cmd = l:cmd . " && git add --all"
+		let l:cmd = l:cmd . " && git commit -m" . a:comment
+		let l:cmd = l:cmd . " && git push origin master"
+		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
 
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
-	" # nnoremap <silent> <c-t><c-h> :call NTermCurrentDir()<CR>
-	" # nnoremap <silent> <c-t><c-n> :call NTermNewTab()<CR>
-	" # nnoremap <silent> <c-t><c-m> :call NTermCMake()<CR>
-	" # nnoremap <silent> <c-t><c-c> :call NTermCatkinMake()<CR>
-	" # nnoremap <silent> <c-t><c-p> :call NTermPython()<CR>
-	
-	command! Tex call TexCompile()
-	command! Py call NTermPython()
-	command! Ros call NTermCatkinMake()
-	command! Make call NTermCMake()
+
+	command Make   call NTermCMake()
+	command Catkin call NTermCatkinMake()
+	command Python call NTermPython()
+	command Tex    call NTermTexCompile()
+
+	command -nargs=1 MyCommand call MyCommand(<f-args>)
+	command -nargs=1 GitPush call GitPush(<f-args>)
+	nnoremap * :MyCommand 
+
+	function MyCommand(command)
+		if a:command == 'make'
+			call NTermCMake()
+		elseif a:command == 'catkin'
+			call NTermCatkinMake()
+		elseif a:command == 'python'
+			call NTermPython()
+		elseif a:command == 'tex'
+			call NTermTexCompile()
+		else
+			echo '[error] Unknown command.'
+		endif
+	endfunction
 '''
 
 # cool statusline
