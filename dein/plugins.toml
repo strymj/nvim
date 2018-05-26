@@ -46,7 +46,7 @@ hook_add = '''
 
 	function NTermCMake()
 		let l:cmd = "cd " .expand("%:p:h")
-		let l:cmd = " && ~/.config/nvim/scripts/AutoCMake.sh"
+		let l:cmd = l:cmd . " && source ~/.config/nvim/scripts/AutoCMake.sh"
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
@@ -95,7 +95,7 @@ hook_add = '''
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
 
-	command MYCMDmake   call NTermCMake()
+	command MYCMDcmake   call NTermCMake()
 	command MYCMDcatkin call NTermCatkinMake()
 	command MYCMDpython call NTermPython()
 	command MYCMDtex    call NTermTexCompile()
