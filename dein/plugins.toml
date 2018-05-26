@@ -99,7 +99,7 @@ hook_add = '''
 	command MYCMDcatkin call NTermCatkinMake()
 	command MYCMDpython call NTermPython()
 	command MYCMDtex    call NTermTexCompile()
-	command -nargs=1 MYCMDgit call GitPush(<f-args>)
+	command -nargs=1 MYCMDgitpush call GitPush(<f-args>)
 
 	nnoremap * :MYCMD
 '''
