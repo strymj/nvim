@@ -84,10 +84,7 @@ hook_add = '''
 
 	function GitPush( comment )
 		let l:cmd = "cd " .expand("%:p:h")
-		let l:cmd = l:cmd . " && source ~/.config/nvim/scripts/FindGit.sh"
-		let l:cmd = l:cmd . " && git add --all"
-		let l:cmd = l:cmd . " && git commit -m" . a:comment
-		let l:cmd = l:cmd . " && git push origin master"
+		let l:cmd = l:cmd . " && source ~/.config/nvim/scripts/GitPush.sh " . a:comment
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
