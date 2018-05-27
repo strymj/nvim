@@ -89,13 +89,21 @@ hook_add = '''
 		Topen
 	endfunction
 
+	function UpdateConfig()
+		let l:cmd = "cd ~/.config/nvim"
+		let l:cmd = l:cmd . " && git pull"
+		call neoterm#exec({ 'cmd': [ cmd , '' ] })
+		Topen
+	endfunction
+
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
 
-	command MYCMDcmake   call NTermCMake()
+	command MYCMDcmake  call NTermCMake()
 	command MYCMDcatkin call NTermCatkinMake()
 	command MYCMDpython call NTermPython()
 	command MYCMDtex    call NTermTexCompile()
+	command MYCMDupdate call UpdateConfig()
 	command -nargs=1 MYCMDgitpush call GitPush(<f-args>)
 
 	nnoremap * :MYCMD
