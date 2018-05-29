@@ -99,15 +99,29 @@ hook_add = '''
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
 
-	command MYCMDcmake  call NTermCMake()
-	command MYCMDcatkin call NTermCatkinMake()
-	command MYCMDpython call NTermPython()
-	command MYCMDtex    call NTermTexCompile()
-	command MYCMDupdate call UpdateConfig()
-	command -nargs=1 MYCMDgitpush call GitPush(<f-args>)
+	command CMake            call NTermCMake()
+	command CatkinMake       call NTermCatkinMake()
+	command Python           call NTermPython()
+	command TexCompile       call NTermTexCompile()
+	command UpdateConfig     call UpdateConfig()
+	command -nargs=1 GitPush call GitPush(<f-args>)
 
 	nnoremap * :MYCMD
 '''
+
+# alternate command
+[[plugins]]
+repo = 'tyru/vim-altercmd'
+hook_add = '''
+	call altercmd#load()
+	AlterCommand cmake  CMake
+	AlterCommand ckm    CatkinMake
+	AlterCommand py     Python
+	AlterCommand tex    TexCompile
+	AlterCommand upconf UpdateConfig
+	AlterCommand git    GitPush
+'''
+
 
 # cool statusline
 [[plugins]]
