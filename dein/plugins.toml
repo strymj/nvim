@@ -31,11 +31,11 @@ hook_add = '''
 	" # let g:neoterm_split_on_tnew = 1
 	let g:neoterm_default_mod = "belowright"
 
-	function NTermNewTab()
-		" # let g:neoterm_split_on_tnew = 0
-		tabnew
+	function NTermInNewTab()
+		let l:tmp = g:neoterm_default_mod
+		let g:neoterm_default_mod = "tab"
 		Tnew
-		" # let g:neoterm_split_on_tnew = 1
+		let g:neoterm_default_mod = l:tmp
 	endfunction
 
 	function NTermCurrentDir()
@@ -96,6 +96,37 @@ hook_add = '''
 		Topen
 	endfunction
 
+	function NTermMulti( v_num, h_num )
+		let l:tmp = g:neoterm_default_mod
+		let g:neoterm_default_mod = "tab"
+		Tnew
+
+		" # vertical split
+		let g:neoterm_default_mod = "vertical"
+		for i in range( a:h_num - 1 )
+			Tnew
+		endfor
+
+		" # holizontal split
+		let g:neoterm_default_mod = "aboveleft"
+		for i in range( a:h_num )
+
+			for i in range( a:v_num - 1 )
+				Tnew
+			endfor
+
+			" # move to left window
+			execute "winc l"
+
+		endfor
+
+		" # move to top-left window
+		execute "winc t"
+
+		let g:neoterm_default_mod = l:tmp
+	endfunction
+
+
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
 
@@ -105,6 +136,10 @@ hook_add = '''
 	command TexCompile       call NTermTexCompile()
 	command UpdateConfig     call UpdateConfig()
 	command -nargs=1 GitPush call GitPush(<f-args>)
+	command -nargs=+ MultiT  call NTermMulti(<f-args>)
+	command MultiT4          call NTermMulti(2,2)
+	command MultiT6          call NTermMulti(3,2)
+	command MultiT8          call NTermMulti(4,2)
 
 	nnoremap * :MYCMD
 '''
@@ -114,12 +149,15 @@ hook_add = '''
 repo = 'tyru/vim-altercmd'
 hook_add = '''
 	call altercmd#load()
-	AlterCommand cmake  CMake
-	AlterCommand ckm    CatkinMake
-	AlterCommand py     Python
-	AlterCommand tex    TexCompile
-	AlterCommand upconf UpdateConfig
-	AlterCommand git    GitPush
+	AlterCommand cmake   CMake
+	AlterCommand ckm     CatkinMake
+	AlterCommand py      Python
+	AlterCommand tex     TexCompile
+	AlterCommand upconf  UpdateConfig
+	AlterCommand gitpush GitPush
+	AlterCommand term4   MultiT4
+	AlterCommand term6   MultiT6
+	AlterCommand term8   MultiT8
 '''
 
 
