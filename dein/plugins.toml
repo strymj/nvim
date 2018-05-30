@@ -27,7 +27,7 @@ hook_add = '''
 repo = 'kassio/neoterm'
 hook_add = '''
 	let g:neoterm_autoinsert = 1
-	let g:neoterm_autoscroll = 0
+	let g:neoterm_autoscroll = 1
 	" # let g:neoterm_split_on_tnew = 1
 	let g:neoterm_default_mod = "belowright"
 
@@ -162,7 +162,7 @@ hook_add = '''
 
 # alternate command
 [[plugins]]
-repo = 'tyru/vim-altercmd'
+repo = 'kana/vim-altercmd'
 hook_add = '''
 	call altercmd#load()
 	AlterCommand cmake   CMake
