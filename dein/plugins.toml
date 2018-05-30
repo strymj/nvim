@@ -126,20 +126,36 @@ hook_add = '''
 		let g:neoterm_default_mod = l:tmp
 	endfunction
 
+	function NTermHolizontalSplit()
+		let l:tmp = g:neoterm_default_mod
+		let g:neoterm_default_mod = "aboveleft"
+		Tnew
+		let g:neoterm_default_mod = l:tmp
+	endfunction
+
+	function NTermVerticalSplit()
+		let l:tmp = g:neoterm_default_mod
+		let g:neoterm_default_mod = "vertical"
+		Tnew
+		let g:neoterm_default_mod = l:tmp
+	endfunction
+
 
 	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
 	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
+	nnoremap <c-t><c-h> :call NTermHolizontalSplit()<CR>
+	nnoremap <c-t><c-v> :call NTermVerticalSplit()<CR>
 
-	command CMake            call NTermCMake()
-	command CatkinMake       call NTermCatkinMake()
-	command Python           call NTermPython()
-	command TexCompile       call NTermTexCompile()
-	command UpdateConfig     call UpdateConfig()
-	command -nargs=1 GitPush call GitPush(<f-args>)
-	command -nargs=+ MultiT  call NTermMulti(<f-args>)
-	command MultiT4          call NTermMulti(2,2)
-	command MultiT6          call NTermMulti(3,2)
-	command MultiT8          call NTermMulti(4,2)
+	command CMake                call NTermCMake()
+	command CatkinMake           call NTermCatkinMake()
+	command Python               call NTermPython()
+	command TexCompile           call NTermTexCompile()
+	command UpdateConfig         call UpdateConfig()
+	command -nargs=1 GitPush     call GitPush(<f-args>)
+	command -nargs=+ NTermMulti  call NTermMulti(<f-args>)
+	command NTermMulti4          call NTermMulti(2,2)
+	command NTermMulti6          call NTermMulti(3,2)
+	command NTermMulti8          call NTermMulti(4,2)
 
 	nnoremap * :MYCMD
 '''
@@ -155,9 +171,10 @@ hook_add = '''
 	AlterCommand tex     TexCompile
 	AlterCommand upconf  UpdateConfig
 	AlterCommand gitpush GitPush
-	AlterCommand term4   MultiT4
-	AlterCommand term6   MultiT6
-	AlterCommand term8   MultiT8
+	AlterCommand term    NTermMulti
+	AlterCommand term4   NTermMulti4
+	AlterCommand term6   NTermMulti6
+	AlterCommand term8   NTermMulti8
 '''
 
 
