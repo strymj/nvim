@@ -177,7 +177,6 @@ hook_add = '''
 	AlterCommand term8   NTermMulti8
 '''
 
-
 # cool statusline
 [[plugins]]
 repo = 'itchyny/lightline.vim'
