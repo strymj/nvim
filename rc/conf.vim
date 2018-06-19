@@ -34,6 +34,5 @@ augroup END
 " exclude files when findinf
 set wildignore+=*.o,*.zip,*.png,*.jpg,*.mp3.*.mp4,*.wav
 
-
 " set mapleader
 let mapleader = "\<Space>"

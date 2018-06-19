@@ -94,7 +94,7 @@ hook_add = '''
 		let l:cmd = l:cmd . " && git pull"
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
-		execute "source ~/.config/nvim/init.vim"
+		" execute "source ~/.config/nvim/init.vim"
 	endfunction
 
 	function! NTermMulti( v_num, h_num )

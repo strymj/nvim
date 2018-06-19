@@ -3,7 +3,7 @@
 " reload init.vim
 nnoremap <Leader>rc :source ~/.config/nvim/init.vim<CR>
 
-" normalmode Enter
+" normal mode Enter
 nnoremap <CR> i<CR><Right><ESC>
 
 " tab change
@@ -20,7 +20,7 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" mone to next word
+" move to begin(end) of the line
 nnoremap <S-l> $
 nnoremap <S-h> 0
 vnoremap <S-l> $
