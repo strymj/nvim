@@ -31,34 +31,34 @@ hook_add = '''
 	" # let g:neoterm_split_on_tnew = 1
 	let g:neoterm_default_mod = "belowright"
 
-	function NTermInNewTab()
+	function! NTermInNewTab()
 		let l:tmp = g:neoterm_default_mod
 		let g:neoterm_default_mod = "tab"
 		Tnew
 		let g:neoterm_default_mod = l:tmp
 	endfunction
 
-	function NTermCurrentDir()
+	function! NTermCurrentDir()
 		let l:cmd = "cd " .expand("%:p:h")
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
 
-	function NTermCMake()
+	function! NTermCMake()
 		let l:cmd = "cd " .expand("%:p:h")
 		let l:cmd = l:cmd . " && source ~/.config/nvim/scripts/AutoCMake.sh"
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
 
-	function NTermCatkinMake()
+	function! NTermCatkinMake()
 		let l:cmd = "roscd"
 		let l:cmd = l:cmd . " && catkin_make"
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
 
-	function NTermPython()
+	function! NTermPython()
 		if expand("%:e") != 'py'
 			echo '[error] Invalid file extension.'
 			return
@@ -69,7 +69,7 @@ hook_add = '''
 		Topen
 	endfunction
 
-	function NTermTexCompile()
+	function! NTermTexCompile()
 		if expand("%:e") != 'tex'
 			echo '[error] Invalid file extension.'
 			return
@@ -82,21 +82,22 @@ hook_add = '''
 		Topen
 	endfunction
 
-	function GitPush( comment )
+	function! GitPush( comment )
 		let l:cmd = "cd " .expand("%:p:h")
 		let l:cmd = l:cmd . " && source ~/.config/nvim/scripts/GitPush.sh " . a:comment
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
 
-	function UpdateConfig()
+	function! UpdateConfig()
 		let l:cmd = "cd ~/.config/nvim"
 		let l:cmd = l:cmd . " && git pull"
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
+		execute "source ~/.config/nvim/init.vim"
 	endfunction
 
-	function NTermMulti( v_num, h_num )
+	function! NTermMulti( v_num, h_num )
 		let l:tmp = g:neoterm_default_mod
 		let g:neoterm_default_mod = "tab"
 		Tnew
@@ -126,14 +127,14 @@ hook_add = '''
 		let g:neoterm_default_mod = l:tmp
 	endfunction
 
-	function NTermHolizontalSplit()
+	function! NTermHolizontalSplit()
 		let l:tmp = g:neoterm_default_mod
 		let g:neoterm_default_mod = "aboveleft"
 		Tnew
 		let g:neoterm_default_mod = l:tmp
 	endfunction
 
-	function NTermVerticalSplit()
+	function! NTermVerticalSplit()
 		let l:tmp = g:neoterm_default_mod
 		let g:neoterm_default_mod = "vertical"
 		Tnew
@@ -146,18 +147,16 @@ hook_add = '''
 	nnoremap <c-t><c-h> :call NTermHolizontalSplit()<CR>
 	nnoremap <c-t><c-v> :call NTermVerticalSplit()<CR>
 
-	command CMake                call NTermCMake()
-	command CatkinMake           call NTermCatkinMake()
-	command Python               call NTermPython()
-	command TexCompile           call NTermTexCompile()
-	command UpdateConfig         call UpdateConfig()
-	command -nargs=1 GitPush     call GitPush(<f-args>)
-	command -nargs=+ NTermMulti  call NTermMulti(<f-args>)
-	command NTermMulti4          call NTermMulti(2,2)
-	command NTermMulti6          call NTermMulti(3,2)
-	command NTermMulti8          call NTermMulti(4,2)
-
-	nnoremap * :MYCMD
+	command! CMake                call NTermCMake()
+	command! CatkinMake           call NTermCatkinMake()
+	command! Python               call NTermPython()
+	command! TexCompile           call NTermTexCompile()
+	command! UpdateConfig         call UpdateConfig()
+	command! -nargs=1 GitPush     call GitPush(<f-args>)
+	command! -nargs=+ NTermMulti  call NTermMulti(<f-args>)
+	command! NTermMulti4          call NTermMulti(2,2)
+	command! NTermMulti6          call NTermMulti(3,2)
+	command! NTermMulti8          call NTermMulti(4,2)
 '''
 
 # alternate command
