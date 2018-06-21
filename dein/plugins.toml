@@ -76,7 +76,7 @@ hook_add = '''
 		endif
 
 		let l:cmd = "cd " .expand("%:p:h")
-		let l:cmd = l:cmd . " && platex " . expand("%")
+		let l:cmd = l:cmd . " && platex " . expand("%:p")
 		let l:cmd = l:cmd . " && dvipdfmx " . expand("%:p:r") . ".dvi"
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
