@@ -14,7 +14,7 @@ augroup AutoColor
 	" autocmd Colorscheme * highlight! link TabLine LineNr
 	autocmd Colorscheme * highlight TabLine cterm=underline ctermbg=none  
 	" autocmd Colorscheme * highlight! link TabLineSel Special
-	autocmd Colorscheme * highlight TabLineSel cterm=underline ctermbg=none
+	autocmd Colorscheme * highlight TabLineSel cterm=underline ctermbg=none ctermfg=216
 	" autocmd Colorscheme * highlight TabLineFill cterm=none ctermbg=none
 	autocmd Colorscheme * highlight TabLineFill cterm=underline ctermbg=none
 augroup END
