@@ -11,9 +11,12 @@ augroup AutoColor
 	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
 	autocmd Colorscheme * highlight CursorLine ctermbg=none
 	autocmd Colorscheme * highlight! link CursorLineNr Special
-	autocmd Colorscheme * highlight! link TabLine LineNr
-	autocmd Colorscheme * highlight! link TabLineSel Underlined
-	autocmd Colorscheme * highlight TabLineFill cterm=none ctermbg=none
+	" autocmd Colorscheme * highlight! link TabLine LineNr
+	autocmd Colorscheme * highlight TabLine cterm=underline ctermbg=none  
+	" autocmd Colorscheme * highlight! link TabLineSel Special
+	autocmd Colorscheme * highlight TabLineSel cterm=underline ctermbg=none
+	" autocmd Colorscheme * highlight TabLineFill cterm=none ctermbg=none
+	autocmd Colorscheme * highlight TabLineFill cterm=underline ctermbg=none
 augroup END
 
 " highlight trailing spaces for markdown files
