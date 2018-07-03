@@ -58,13 +58,13 @@ hook_add = '''
 		Topen
 	endfunction
 
-	function! NTermPython()
+	function! NTermPython( args )
 		if expand("%:e") != 'py'
 			echo '[error] Invalid file extension.'
 			return
 		endif
 
-		let l:cmd = "python " .expand("%:p")
+		let l:cmd = "python " .expand("%:p") . " " . a:args
 		call neoterm#exec({ 'cmd': [ cmd , '' ] })
 		Topen
 	endfunction
@@ -149,7 +149,7 @@ hook_add = '''
 
 	command! CMake                call NTermCMake()
 	command! CatkinMake           call NTermCatkinMake()
-	command! Python               call NTermPython()
+	command! -nargs=1 Python      call NTermPython(<f-args>)
 	command! TexCompile           call NTermTexCompile()
 	command! UpdateConfig         call UpdateConfig()
 	command! -nargs=1 GitPush     call GitPush(<f-args>)
