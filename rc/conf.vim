@@ -17,6 +17,7 @@ set noswapfile
 " link clipboard
 " set clipboard=unnamed,unnamedplus
 set clipboard=unnamedplus
+" set clipboard=unnamed
 
 " piyopiyo bell off
 set visualbell t_vb=
