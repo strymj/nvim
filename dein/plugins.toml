@@ -5,10 +5,6 @@
 repo = 'tomtom/tcomment_vim'
 # on_i = 1
 
-# [[plugins]]
-# repo = 'hail2u/vim-css3-syntax'
-# on_ft = ['html']
-
 # easy insert () {} [] <> ...
 [[plugins]]
 repo = 'tpope/vim-surround'
