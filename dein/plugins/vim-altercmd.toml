@@ -1,0 +1,16 @@
+# alternate command
+[[plugins]]
+repo = 'kana/vim-altercmd'
+hook_add = '''
+	call altercmd#load()
+	AlterCommand cmake   CMake
+	AlterCommand ckm     CatkinMake
+	AlterCommand py      Python
+	AlterCommand tex     TexCompile
+	AlterCommand upconf  UpdateConfig
+	AlterCommand gitpush GitPush
+	AlterCommand term    NTermMulti
+	AlterCommand term4   NTermMulti4
+	AlterCommand term6   NTermMulti6
+	AlterCommand term8   NTermMulti8
+'''

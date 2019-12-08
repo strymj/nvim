@@ -3,7 +3,6 @@
 # easy commentout key -> gc, gcc
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
-# on_i = 1
 
 # easy insert () {} [] <> ...
 [[plugins]]
@@ -68,9 +67,11 @@ hook_add = '''
 		let l:cmd = "python " .expand("%:p")
 		for arg in a:000
 			let l:cmd = l:cmd . " " . arg
+			"let l:cmd.cmd = [ l:cmd.cmd, arg ]
 		endfor
 
-		call neoterm#exec({ 'cmd': [ cmd , '' ] })
+		call neoterm#exec({ 'cmd': [ cmd ] })
+		"T python l:cmd
 		Topen
 	endfunction
 
@@ -155,6 +156,7 @@ hook_add = '''
 	command! CMake                call NTermCMake()
 	command! CatkinMake           call NTermCatkinMake()
 	command! -nargs=* Python      call NTermPython(<f-args>)
+	"command! -nargs=* Python      :T python %:p <f-args>
 	command! TexCompile           call NTermTexCompile()
 	command! UpdateConfig         call UpdateConfig()
 	command! -nargs=1 GitPush     call GitPush(<f-args>)
@@ -162,23 +164,6 @@ hook_add = '''
 	command! NTermMulti4          call NTermMulti(2,2)
 	command! NTermMulti6          call NTermMulti(3,2)
 	command! NTermMulti8          call NTermMulti(4,2)
-'''
-
-# alternate command
-[[plugins]]
-repo = 'kana/vim-altercmd'
-hook_add = '''
-	call altercmd#load()
-	AlterCommand cmake   CMake
-	AlterCommand ckm     CatkinMake
-	AlterCommand py      Python
-	AlterCommand tex     TexCompile
-	AlterCommand upconf  UpdateConfig
-	AlterCommand gitpush GitPush
-	AlterCommand term    NTermMulti
-	AlterCommand term4   NTermMulti4
-	AlterCommand term6   NTermMulti6
-	AlterCommand term8   NTermMulti8
 '''
 
 # cool statusline
@@ -231,7 +216,7 @@ hook_add = '''
 	" # do not show dotfiles
 	let g:ctrlp_show_hidden = 0
 	" # custom command
-	let g:ctrlp_user_command = "ag %s -g '\\.(cpp|hpp|c|h|py|txt|tex|sh|bash|cfg|lua|md|launch|xml|csv|html|css|js|java|pde|toml|yaml|vim)$'"
+	let g:ctrlp_user_command = "ag %s -g '\\.(cpp|hpp|c|h|py|txt|tex|sh|bash|cfg|lua|md|launch|xml|csv|html|php|css|js|java|pde|toml|yaml|command|vim)$'"
 	" # ignore specific files
 	" # let g:ctrlp_custom_ignore = {
 	" # 	\ 'dir':  '\v[\/](\.git|\.hg|\.svn|build)$',
@@ -253,6 +238,7 @@ hook_add = '''
 		" # when CtrlP buffer closed, lightline and statusline on
 	function! CtrlPLeave()
 		set laststatus=2
+		call lightline#update()
 	endfunction
 
 	" # when you start nvim with no file, use CtrlP
@@ -305,18 +291,32 @@ hook_add = '''
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
 	colorscheme iceberg
+	" augroup Colorscheme
+	" 	autocmd!
+	" 	autocmd VimEnter * ++nested colorscheme iceberg
+	" augroup END
 '''
-
-# repo = 'bcicen/vim-vice'
-# repo = 'altercation/vim-colors-solarized'
-# repo = 'baverman/vim-babymate256'
-# repo = 'romainl/Apprentice'
-# repo = 'mbbill/vim-seattle'
-# repo = 'cocopon/iceberg.vim'
 
 # smart_tabline
 [[plugins]]
 repo = 'myrobo/smart_tabline.vim'
+
+# alternate command
+[[plugins]]
+repo = 'kana/vim-altercmd'
+hook_add = '''
+	call altercmd#load()
+	AlterCommand cmake   CMake
+	AlterCommand ckm     CatkinMake
+	AlterCommand py      Python
+	AlterCommand tex     TexCompile
+	AlterCommand upconf  UpdateConfig
+	AlterCommand gitpush GitPush
+	AlterCommand term    NTermMulti
+	AlterCommand term4   NTermMulti4
+	AlterCommand term6   NTermMulti6
+	AlterCommand term8   NTermMulti8
+'''
 
 # # games
 # [[plugins]]

@@ -1,0 +1,6 @@
+# colorscheme
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+	colorscheme iceberg
+'''

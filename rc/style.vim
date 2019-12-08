@@ -64,3 +64,5 @@ set scrolloff=3
 " tab setting
 set tabstop=2
 set shiftwidth=2
+
+set laststatus=2

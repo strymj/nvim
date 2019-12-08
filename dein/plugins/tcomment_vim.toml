@@ -1,0 +1,3 @@
+# easy commentout key -> gc, gcc
+[[plugins]]
+repo = 'tomtom/tcomment_vim'

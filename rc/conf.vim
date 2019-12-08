@@ -1,12 +1,14 @@
 " ##### neovim configuration #####
 
 " set English mode
-language C
+" language C
+language message C
 
 set encoding=utf-8
-set fenc=utf-8
+" set fenc=utf-8
+set fileencoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
-set fileformats=unix,dos,mac
+" set fileformats=unix,dos,mac
 
 " no .swp file
 set noswapfile

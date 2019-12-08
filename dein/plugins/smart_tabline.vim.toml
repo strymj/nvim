@@ -1,0 +1,3 @@
+# smart_tabline
+[[plugins]]
+repo = 'myrobo/smart_tabline.vim'
