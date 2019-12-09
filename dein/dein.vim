@@ -7,11 +7,12 @@ let s:toml_file = expand('~/.config/nvim/dein') . '/plugins.toml'
 let s:toml_dir = expand('~/.config/nvim/dein/plugins')
 
 " dein installation check
-if &runtimepath !~# '/dein.vim'
-	if !isdirectory(s:dein_repo_dir)
+" if &runtimepath !~# '/dein.vim'
+if match( &runtimepath, '/dein.vim' ) == -1
+	if !isdirectory( s:dein_repo_dir )
 		execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 	endif
-	execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
+	execute 'set runtimepath+=' . fnamemodify( s:dein_repo_dir, ':p' )
 endif
 
 " begin settings
