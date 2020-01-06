@@ -32,6 +32,7 @@ set title
 
 " use syntax
 syntax on
+" set redrawtime 5000
 
 " set row number
 set number
