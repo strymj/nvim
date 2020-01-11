@@ -25,27 +25,27 @@ hook_add = '''
 		return ' ' . (100 * line('.') / line('$')) . '%'
 	endfunction
 	let g:lightline = {
-		\ 'enable': { 'tabline': 0 },
-		\ 'colorscheme': 'wombat',
-		\ 'active': {
-			\ 'left': [ ['mymode', 'paste'], ['readonly', 'myfilename', 'modified'] ],
-			\ 'right': [ ['mypercent'], ['myfencfile'] ] 
-		\ },
-		\ 'inactive': {
-			\ 'left': [ ['vimicon'], ['myfilename'] ],
-			\ 'right': [ ['mypercent'], ['myfencfile'] ]
-		\ },
-		\ 'component_function':{
-			\ 'filepath': 'FilePath',
-			\ 'vimicon': 'Vimicon',
-			\ 'mymode': 'Mymode',
-			\ 'mypercent': 'Mypercent',
-			\ 'myfilename': 'Myfilename',
-			\ 'myfencfile': 'Myfencfile',
-		\ },
-		\ 'separator': { 'left': "", 'right': "" },
-		\ 'subseparator' :{ 'left': '|', 'right': '|' }
-	\ }
+	\  'enable': { 'tabline': 0 },
+	\  'colorscheme': 'wombat',
+	\  'active': {
+	\    'left': [ ['vimicon'], ['mode', 'paste'], ['readonly', 'myfilename', 'modified'] ],
+	\    'right': [ ['mypercent'], ['myfencfile'] ] 
+	\  },
+	\  'inactive': {
+	\    'left': [ ['vimicon'], ['myfilename'] ],
+	\    'right': [ ['mypercent'], ['myfencfile'] ]
+	\  },
+	\  'component_function': {
+	\    'filepath': 'FilePath',
+	\    'vimicon': 'Vimicon',
+	\    'mymode': 'Mymode',
+	\    'mypercent': 'Mypercent',
+	\    'myfilename': 'Myfilename',
+	\    'myfencfile': 'Myfencfile',
+	\  },
+	\  'separator': { 'left': "", 'right': "" },
+	\  'subseparator' :{ 'left': '|', 'right': '|' }
+	\}
 
 	set laststatus=2
 	set noshowmode
