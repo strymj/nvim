@@ -13,7 +13,13 @@ hook_add = '''
 		if fname == ""
 			let fname = "no name"
 		endif
-		return ' ' . fname
+		if &modified
+			" let fname = fname . ' +'
+			return 'ﱐ ' . fname
+		else
+			return ' ' . fname
+			" return ' ' . fname
+		endif
 	endfunction
 	function! Myfencfile()
 		if &filetype == ''
@@ -28,7 +34,7 @@ hook_add = '''
 	\  'enable': { 'tabline': 0 },
 	\  'colorscheme': 'wombat',
 	\  'active': {
-	\    'left': [ ['vimicon'], ['mode', 'paste'], ['readonly', 'myfilename', 'modified'] ],
+	\    'left': [ ['vimicon'], ['mode', 'paste'], ['readonly', 'myfilename'] ],
 	\    'right': [ ['mypercent'], ['myfencfile'] ] 
 	\  },
 	\  'inactive': {
