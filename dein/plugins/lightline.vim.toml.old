@@ -1,0 +1,23 @@
+# cool statusline
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+	let g:lightline = {
+		\ 'enable': { 'tabline': 0 },
+		\ 'colorscheme': 'wombat',
+		\ 'active': {
+			\ 'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified'] ],
+			\ 'right': [ ['percent'], ['filetype'], ['fileencoding'] ]
+		\ },
+		\ 'inactive': {
+			\ 'left': [ ['filename'] ],
+			\ 'right': [ ['percent'], ['filetype'] ]
+		\ },
+		\ 'component_function':{
+			\ 'filepath': 'FilePath'
+		\ }
+	\ }
+
+	set laststatus=2
+	set noshowmode
+'''

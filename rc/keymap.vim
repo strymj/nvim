@@ -29,6 +29,9 @@ vnoremap <S-h> 0
 " indent correction
 nnoremap == mYgg=G'Y
 
+" show filepath (replace default)
+nnoremap <C-g> :echo expand("%:p")<CR>
+
 " select all
 nnoremap <Leader>a mZggVG
 

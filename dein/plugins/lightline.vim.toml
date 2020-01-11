@@ -2,20 +2,49 @@
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
+	function! Vimicon()
+		return ' '
+	endfunction
+	function! Mymode()
+		return ' ' . lightline#mode()
+	endfunction
+	function! Myfilename()
+		let fname = expand("%:t")
+		if fname == ""
+			let fname = "empty"
+		endif
+		return ' ' . fname
+	endfunction
+	function! Myfencfile()
+		if &filetype == ''
+			return ' ' . &fenc
+		endif
+		return ' ' . &fenc . ',' . &filetype
+	endfunction
+	function! Mypercent()
+		return ' ' . (100 * line('.') / line('$')) . '%'
+	endfunction
 	let g:lightline = {
 		\ 'enable': { 'tabline': 0 },
 		\ 'colorscheme': 'wombat',
 		\ 'active': {
-			\ 'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified'] ],
-			\ 'right': [ ['percent'], ['filetype'], ['fileencoding'] ]
+			\ 'left': [ ['mymode', 'paste'], ['readonly', 'myfilename', 'modified'] ],
+			\ 'right': [ ['mypercent'], ['myfencfile'] ] 
 		\ },
 		\ 'inactive': {
-			\ 'left': [ ['filename'] ],
-			\ 'right': [ ['percent'], ['filetype'] ]
+			\ 'left': [ ['vimicon'], ['myfilename'] ],
+			\ 'right': [ ['mypercent'], ['myfencfile'] ]
 		\ },
 		\ 'component_function':{
-			\ 'filepath': 'FilePath'
-		\ }
+			\ 'filepath': 'FilePath',
+			\ 'vimicon': 'Vimicon',
+			\ 'mymode': 'Mymode',
+			\ 'mypercent': 'Mypercent',
+			\ 'myfilename': 'Myfilename',
+			\ 'myfencfile': 'Myfencfile',
+		\ },
+		\ 'separator': { 'left': "", 'right': "" },
+		\ 'subseparator' :{ 'left': '|', 'right': '|' }
 	\ }
 
 	set laststatus=2
