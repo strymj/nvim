@@ -29,6 +29,7 @@ augroup END
 
 " set titlebar
 set title
+set titlestring=Vim\ -\ %t
 
 " use syntax
 syntax on

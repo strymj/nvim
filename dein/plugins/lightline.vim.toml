@@ -11,7 +11,7 @@ hook_add = '''
 	function! Myfilename()
 		let fname = expand("%:t")
 		if fname == ""
-			let fname = "empty"
+			let fname = "no name"
 		endif
 		return ' ' . fname
 	endfunction
