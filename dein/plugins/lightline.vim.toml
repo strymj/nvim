@@ -2,56 +2,84 @@
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
+
+	" if you dont have NerdFont, call SetHasNerdFont(0)
+	function! SetHasNerdFont( has_nerd_font )
+		if a:has_nerd_font
+			let g:has_nerdfont = 1
+			let g:char_vimicon = ' '
+			let g:char_file    = ' '
+			" let g:char_file  = ' '
+			let g:char_modfile = 'ﱐ '
+			let g:char_spec    = ' '
+			let g:char_search  = ' '
+		else
+			let g:has_nerdfont = 0
+			let g:char_vimicon = 'Vim'
+			let g:char_file    = ''
+			let g:char_modfile = ''
+			let g:char_spec    = ''
+			let g:char_search  = ''
+		endif
+	endfunction
+	call SetHasNerdFont(1)
+
 	function! Vimicon()
-		return ' '
+		return g:char_vimicon
 	endfunction
+
 	function! Mymode()
-		return ' ' . lightline#mode()
+		return g:char_vimicon . lightline#mode()
 	endfunction
+
 	function! Myfilename()
 		let fname = expand("%:t")
+
 		if fname == ""
 			let fname = "no name"
 		endif
-		if &modified
-			" let fname = fname . ' +'
-			return 'ﱐ ' . fname
+
+		if &modified == 0
+			return g:char_file . fname
 		else
-			return ' ' . fname
-			" return ' ' . fname
+			if g:has_nerdfont == 0
+				let fname = fname . ' +'
+		 	endif
+			return g:char_modfile . fname
 		endif
 	endfunction
+
 	function! Myfencfile()
-		if &filetype == ''
-			return ' ' . &fenc
+		let contents = &fenc
+		if &filetype != ''
+			let contents = contents . ',' . &filetype
 		endif
-		return ' ' . &fenc . ',' . &filetype
+		return g:char_spec . contents
 	endfunction
+
 	function! Mypercent()
-		return ' ' . (100 * line('.') / line('$')) . '%'
+		let percent = 100 * line('.') / line('$')
+		return g:char_search . percent . '%'
 	endfunction
-	let g:lightline = {
-	\  'enable': { 'tabline': 0 },
-	\  'colorscheme': 'wombat',
-	\  'active': {
-	\    'left': [ ['vimicon'], ['mode', 'paste'], ['readonly', 'myfilename'] ],
-	\    'right': [ ['mypercent'], ['myfencfile'] ] 
-	\  },
-	\  'inactive': {
-	\    'left': [ ['vimicon'], ['myfilename'] ],
-	\    'right': [ ['mypercent'], ['myfencfile'] ]
-	\  },
-	\  'component_function': {
-	\    'filepath': 'FilePath',
-	\    'vimicon': 'Vimicon',
-	\    'mymode': 'Mymode',
-	\    'mypercent': 'Mypercent',
-	\    'myfilename': 'Myfilename',
-	\    'myfencfile': 'Myfencfile',
-	\  },
-	\  'separator': { 'left': "", 'right': "" },
-	\  'subseparator' :{ 'left': '|', 'right': '|' }
-	\}
+
+	let g:lightline = {}
+	let g:lightline.enable = { 'statusline': 1, 'tabline': 0 }
+	let g:lightline.colorscheme = 'wombat'
+	let g:lightline_active_left = [ ['vimicon'], ['mode', 'paste'], ['readonly', 'myfilename'] ]
+	let g:lightline_inactive_left = [ ['vimicon'], ['myfilename'] ]
+	let g:lightline_active_right = [ ['mypercent'], ['myfencfile'] ]
+	let g:lightline_inactive_right = g:lightline_active_right
+	let g:lightline.active = { 'left': g:lightline_active_left, 'right': g:lightline_active_right }
+	let g:lightline.inactive = { 'left': g:lightline_inactive_left, 'right': g:lightline_inactive_right }
+	let g:lightline.component_function = {
+		\ 'filepath': 'FilePath',
+		\ 'vimicon': 'Vimicon',
+		\ 'mymode': 'Mymode',
+		\ 'mypercent': 'Mypercent',
+		\ 'myfilename': 'Myfilename',
+		\ 'myfencfile': 'Myfencfile' }
+	let g:lightline.separator = { 'left': "", 'right': "" }
+	let g:lightline.subseparator = { 'left': '|', 'right': '|' }
 
 	set laststatus=2
 	set noshowmode
