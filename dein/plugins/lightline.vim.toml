@@ -8,11 +8,12 @@ hook_add = '''
 	function! SetHasNerdFont( has_nerd_font )
 		if a:has_nerd_font
 			let g:has_nerdfont = 1
-			let g:char_vimicon = ' '
+			let g:char_vimicon = '   '
 			let g:char_file    = ' '
 			" let g:char_file  = ' '
 			let g:char_modfile = 'ﱐ '
-			let g:char_spec    = ' '
+			let g:char_filet   = ' '
+			let g:char_fenc    = '  '
 			let g:char_search  = ' '
 			let g:lightline.separator = { 'left': "", 'right': "" }
 			let g:lightline.subseparator = { 'left': '|', 'right': '|' }
@@ -20,8 +21,10 @@ hook_add = '''
 			let g:has_nerdfont = 0
 			let g:char_vimicon = 'Vim'
 			let g:char_file    = ''
+			" let g:char_file  = ''
 			let g:char_modfile = ''
-			let g:char_spec    = ''
+			let g:char_filet   = ''
+			let g:char_fenc    = ''
 			let g:char_search  = ''
 			let g:lightline.separator = { 'left': "", 'right': "" }
 			let g:lightline.subseparator = { 'left': '|', 'right': '|' }
@@ -36,15 +39,16 @@ hook_add = '''
 		call lightline#update()
 	endfunction
 
-	function! Vimicon()
+
+	function! MyVimIcon()
 		return g:char_vimicon
 	endfunction
 
-	function! Mymode()
+	function! MyMode()
 		return g:char_vimicon . lightline#mode()
 	endfunction
 
-	function! Myfilename()
+	function! MyFilename()
 		let fname = expand("%:t")
 
 		if fname == ""
@@ -61,34 +65,46 @@ hook_add = '''
 		endif
 	endfunction
 
-	function! Myfencfile()
+	function! MyFencFilet()
 		let contents = &fenc
 		if &filetype != ''
 			let contents = contents . ',' . &filetype
 		endif
-		return g:char_spec . contents
+		return g:char_filet . contents
 	endfunction
 
-	function! Mypercent()
+	function! MyFenc()
+		return g:char_fenc . &fenc
+	endfunction
+
+	function! MyFilet()
+		return g:char_filet . &filetype
+	endfunction
+
+	function! MyPercent()
 		let percent = 100 * line('.') / line('$')
 		return g:char_search . percent . '%'
 	endfunction
 
 	let g:lightline.enable = { 'statusline': 1, 'tabline': 0 }
 	let g:lightline.colorscheme = 'wombat'
-	let g:lightline_active_left = [ ['vimicon'], ['mode', 'paste'], ['readonly', 'myfilename'] ]
-	let g:lightline_inactive_left = [ ['vimicon'], ['myfilename'] ]
-	let g:lightline_active_right = [ ['mypercent'], ['myfencfile'] ]
+	let g:lightline_active_left = [ ['myvimicon'], ['mode', 'paste'], ['readonly', 'myfilename'] ]
+	" let g:lightline_active_left = [ ['mymode', 'paste'], ['readonly', 'myfilename'] ]
+	let g:lightline_active_right = [ ['mypercent'], ['myfencfilet'] ]
+	" let g:lightline_active_right = [ ['mypercent'], ['myfilet'], ['myfenc'] ]
+	let g:lightline_inactive_left = [ ['myvimicon'], ['myfilename'] ]
 	let g:lightline_inactive_right = g:lightline_active_right
 	let g:lightline.active = { 'left': g:lightline_active_left, 'right': g:lightline_active_right }
 	let g:lightline.inactive = { 'left': g:lightline_inactive_left, 'right': g:lightline_inactive_right }
 	let g:lightline.component_function = {
-		\ 'filepath': 'FilePath',
-		\ 'vimicon': 'Vimicon',
-		\ 'mymode': 'Mymode',
-		\ 'mypercent': 'Mypercent',
-		\ 'myfilename': 'Myfilename',
-		\ 'myfencfile': 'Myfencfile' }
+		\ 'myvimicon': 'MyVimIcon',
+		\ 'mymode': 'MyMode',
+		\ 'myfilename': 'MyFilename',
+		\ 'mypercent': 'MyPercent',
+		\ 'myfencfilet': 'MyFencFilet',
+		\ 'myfenc': 'MyFenc',
+		\ 'myfilet': 'MyFilet',
+		\ }
 
 	set laststatus=2
 	set noshowmode

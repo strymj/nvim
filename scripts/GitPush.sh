@@ -1,6 +1,6 @@
 #!/bin/bash
 
-target=".git"
+git_dir=".git"
 dir="build"
 max_depth=10
 
@@ -11,7 +11,7 @@ fi
 found="false"
 for i in $(seq 1 ${max_depth})
 do
-	if [ -e ${target} ]; then
+	if [ -e ${git_dir} ]; then
 		found="true"
 		break
 	fi
@@ -25,5 +25,5 @@ if [ ${found} = "true" ]; then
 	git commit -m $1
 	git push origin master
 else
-	echo "[$0] Cannot find ${target}."
+	echo "[$0] Cannot find ${target} directory. Do nothing."
 fi
