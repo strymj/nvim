@@ -3,7 +3,8 @@
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 
-	" if you dont have NerdFont, call SetHasNerdFont(0)
+	let g:lightline = {}
+
 	function! SetHasNerdFont( has_nerd_font )
 		if a:has_nerd_font
 			let g:has_nerdfont = 1
@@ -13,6 +14,8 @@ hook_add = '''
 			let g:char_modfile = 'ﱐ '
 			let g:char_spec    = ' '
 			let g:char_search  = ' '
+			let g:lightline.separator = { 'left': "", 'right': "" }
+			let g:lightline.subseparator = { 'left': '|', 'right': '|' }
 		else
 			let g:has_nerdfont = 0
 			let g:char_vimicon = 'Vim'
@@ -20,9 +23,18 @@ hook_add = '''
 			let g:char_modfile = ''
 			let g:char_spec    = ''
 			let g:char_search  = ''
+			let g:lightline.separator = { 'left': "", 'right': "" }
+			let g:lightline.subseparator = { 'left': '|', 'right': '|' }
 		endif
 	endfunction
 	call SetHasNerdFont(1)
+
+	" if you dont have NerdFont, please call LLIcon(0)
+	function! LLIcon( bool_input )
+		call SetHasNerdFont( a:bool_input )
+		call lightline#init()
+		call lightline#update()
+	endfunction
 
 	function! Vimicon()
 		return g:char_vimicon
@@ -62,7 +74,6 @@ hook_add = '''
 		return g:char_search . percent . '%'
 	endfunction
 
-	let g:lightline = {}
 	let g:lightline.enable = { 'statusline': 1, 'tabline': 0 }
 	let g:lightline.colorscheme = 'wombat'
 	let g:lightline_active_left = [ ['vimicon'], ['mode', 'paste'], ['readonly', 'myfilename'] ]
@@ -78,8 +89,6 @@ hook_add = '''
 		\ 'mypercent': 'Mypercent',
 		\ 'myfilename': 'Myfilename',
 		\ 'myfencfile': 'Myfencfile' }
-	let g:lightline.separator = { 'left': "", 'right': "" }
-	let g:lightline.subseparator = { 'left': '|', 'right': '|' }
 
 	set laststatus=2
 	set noshowmode
