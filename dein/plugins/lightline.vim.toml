@@ -14,6 +14,7 @@ hook_add = '''
 			let g:char_modfile = 'ﱐ '
 			let g:char_filet   = ' '
 			let g:char_fenc    = '  '
+			let g:char_fenc    = ' '
 			let g:char_search  = ' '
 			let g:lightline.separator = { 'left': "", 'right': "" }
 			let g:lightline.subseparator = { 'left': '|', 'right': '|' }
