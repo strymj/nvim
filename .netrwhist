@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/strymj/Music/Music/Music Library.musiclibrary'
 let g:netrw_dirhist_3='/Users/strymj/.config/nvim/dein/plugins'
 let g:netrw_dirhist_2='/Users/strymj/Desktop/xkitchen/.git'
 let g:netrw_dirhist_1='/Users/strymj/Documents/waifu2x-converter-cpp/src'

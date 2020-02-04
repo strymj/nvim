@@ -30,6 +30,9 @@ augroup END
 " set titlebar
 set title
 set titlestring=Vim\ -\ %t
+if has('nvim')
+	set titlestring=NVim\ -\ %t
+endif
 
 " use syntax
 syntax on

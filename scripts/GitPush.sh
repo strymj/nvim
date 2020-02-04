@@ -1,7 +1,6 @@
 #!/bin/bash
 
 git_dir=".git"
-dir="build"
 max_depth=10
 
 if [ $# -ne 1 ]; then
@@ -20,7 +19,7 @@ do
 done
 
 if [ ${found} = "true" ]; then
-	echo "[$0] Found ${target}."
+	# echo "[$0] Found ${target}."
 	git add --all
 	git commit -m $1
 	git push origin master
