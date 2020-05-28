@@ -3,6 +3,10 @@
 " reload init.vim
 nnoremap <Leader>rc :source ~/.config/nvim/init.vim<CR>
 
+" for US keyboard
+nnoremap ;:
+nnoremap :;
+
 " normal mode Enter
 nnoremap <CR> i<CR><Right><ESC>
 
