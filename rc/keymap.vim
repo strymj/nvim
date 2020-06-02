@@ -4,8 +4,10 @@
 nnoremap <Leader>rc :source ~/.config/nvim/init.vim<CR>
 
 " for US keyboard
-nnoremap ;:
-nnoremap :;
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " normal mode Enter
 nnoremap <CR> i<CR><Right><ESC>

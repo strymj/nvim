@@ -11,7 +11,16 @@ hook_add = '''
 	let g:ctrlp_lazy_update = 200 
 	let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
 	let g:ctrlp_show_hidden = 0
-	let g:ctrlp_user_command = "ag %s -g '\\.(cpp|hpp|c|h|py|txt|tex|sh|bash|cfg|lua|md|launch|xml|csv|html|php|css|js|java|pde|toml|yaml|command|vim)$'"
+	" let g:ctrlp_user_command = "find %s -g '\\.(cpp|hpp|c|h|py|txt|tex|sh|bash|cfg|lua|md|launch|xml|csv|html|php|css|js|java|pde|toml|yaml|command|vim)$'"
+	let g:ctrlp_my_regexp = "'.*\\.(cpp|hpp|c|h|py|txt|tex|sh|bash|cfg|lua|md|launch|xml|csv|html|php|css|js|java|pde|toml|yaml|command|vim)$'"
+	let g:ctrlp_user_command = "find -E %s -type f -regex " . g:ctrlp_my_regexp
+	" if executable('rg')
+	" 	let g:ctrlp_user_command = "rg %s -g " . g:ctrlp_my_regexp
+	" elseif executable('ag')
+	if executable('ag')
+		let g:ctrlp_user_command = "ag %s -g " . g:ctrlp_my_regexp
+	endif
+	" echo g:ctrlp_user_command
 
 	function! CtrlPEnter()
 		set laststatus=0
@@ -32,10 +41,10 @@ hook_add = '''
 		\ 'exit': 'CtrlPLeave',
 		\ }
 
-	augroup AutoCtrlP
-		autocmd!
-		autocmd VimEnter * call CtrlPStartUp()
-	augroup END
+	" augroup AutoCtrlP
+	" 	autocmd!
+	" 	autocmd VimEnter * call CtrlPStartUp()
+	" augroup END
 
 	function! CtrlPWithNowFName()
 		let l:lazy_time = g:ctrlp_lazy_update
