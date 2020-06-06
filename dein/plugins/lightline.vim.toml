@@ -94,6 +94,7 @@ hook_add = '''
 	let g:lightline.component_function = {
 		\ 'mymode': 'MyMode',
 		\ 'mypercent': 'MyPercent',
+		\ 'myfilename': 'MyFilename',
 		\ }
 	let g:lightline.component_expand = {
 		\ 'myvimicon': 'MyVimIcon',
