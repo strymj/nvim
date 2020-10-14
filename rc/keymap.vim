@@ -51,7 +51,7 @@ inoremap <C-j> <ESC>o
 " c++ function shortcut
 " inoremap {{ {<CR>}<Up><ESC>o
 inoremap {{ {<CR><ESC>o}<ESC><Up>I
-inoremap `` {/*{{{*/<CR>}/*}}}*/<Up><ESC>o
+" inoremap `` {/*{{{*/<CR>}/*}}}*/<Up><ESC>o
 
 " neovim terminal mapping
 if exists(':tnoremap')

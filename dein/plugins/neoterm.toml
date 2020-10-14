@@ -44,7 +44,7 @@ hook_add = '''
 			let l:cmd = l:cmd . " " . arg
 		endfor
 
-		call neoterm#exec({ 'cmd': [ cmd ] })
+		call neoterm#exec({ 'cmd': [ cmd, '' ] })
 		Topen
 	endfunction
 
@@ -123,6 +123,7 @@ hook_add = '''
 	command! CMake                call NTermCMake()
 	command! CatkinMake           call NTermCatkinMake()
 	command! -nargs=* Python      call NTermPython(<f-args>)
+	command! OpenCurrentDir       call NTermCurrentDir()
 	command! TexCompile           call NTermTexCompile()
 	command! UpdateConfig         call UpdateConfig()
 	command! -nargs=1 GitPush     call GitPush(<f-args>)

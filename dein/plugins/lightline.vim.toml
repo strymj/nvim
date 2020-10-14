@@ -98,7 +98,6 @@ hook_add = '''
 		\ }
 	let g:lightline.component_expand = {
 		\ 'myvimicon': 'MyVimIcon',
-		\ 'myfilename': 'MyFilename',
 		\ 'myfencfilet': 'MyFencFilet',
 		\ 'myfenc': 'MyFenc',
 		\ 'myfilet': 'MyFilet',

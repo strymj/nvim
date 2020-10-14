@@ -6,6 +6,7 @@ hook_add = '''
 	AlterCommand cmake   CMake
 	AlterCommand ckm     CatkinMake
 	AlterCommand py      Python
+	AlterCommand curdir  OpenCurrentDir
 	AlterCommand tex     TexCompile
 	AlterCommand upconf  UpdateConfig
 	AlterCommand gitpush GitPush
